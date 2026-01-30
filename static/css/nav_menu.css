@@ -1,0 +1,39 @@
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-items {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.menu-text {
+    text-decoration: none;
+    color: black;
+    font-family: 'Gilroy-Light', sans-serif;
+}
+.menu-items a:nth-child(5) {
+    margin-right: 30px !important;
+}
+.menu-items a:nth-child(6) {
+    margin-right: -40px !important;
+    margin-top: 3px;
+}
+.logo {
+    font-family: 'PlayfairDisplay', serif !important;
+    color: rgba(229, 28, 36, 1);
+    font-size: 64px;
+}
+
+.hr {
+    width: 100%;
+    height: 3px;
+    border: none;
+    background-color: black;
+    margin-top: 0px;
+}
+

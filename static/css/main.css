@@ -1,7 +1,4 @@
-.nav-links {
-    /* одинаковое растоянеи между на всю ширину контейнера  */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
+h1 {
+    font-family: 'PlayfairDisplay', serif !important;
+    color: rgba(229, 28, 36, 1);
 }
