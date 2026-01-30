@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-top: 20px;
 }
 
 .menu-items {
@@ -24,9 +25,8 @@
     margin-top: 3px;
 }
 .logo {
-    font-family: 'PlayfairDisplay', serif !important;
-    color: rgba(229, 28, 36, 1);
-    font-size: 64px;
+    width: 30px;
+    height: auto;
 }
 
 .hr {
@@ -34,6 +34,6 @@
     height: 3px;
     border: none;
     background-color: black;
-    margin-top: 0px;
+    margin-top: 5px;
 }
 
