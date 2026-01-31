@@ -76,3 +76,18 @@ p {
     font-weight: 400;
     line-height: 1.2;
 }
+
+
+.desc-h {
+    color: black;
+    font-family: 'Gilroy-Light', sans-serif !important;
+    font-size: 3rem;
+    font-weight: 400;
+}
+.desc-p {
+    color: black;
+    font-family: 'Gilroy-Light', sans-serif !important;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
