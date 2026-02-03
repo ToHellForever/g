@@ -86,6 +86,7 @@
             <div class="project-photos">
                 {% for photo in project.photos.all %}
                 <img src="{{ photo.image.url }}" alt="Project photo" class="project-photo photo-{{ photo.order }}">
+                <p>{{ project.name }}</p>
                 {% endfor %}
             </div>
             <button class="project-button">Подробнее</button>
