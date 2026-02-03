@@ -77,27 +77,35 @@
     <hr class="hr">
     <p class="desc-p">Наше агенство занимается графическим дизайном, оформлением и ведением соцсетей, а также созданием сайтов. Помогаем бизнесу выглядеть дорого, современно и привлекать клиентов за счёт продуманного визуала и грамотного контента.</p>
 
-    <div class="projects-container">
-        {% for project in projects %}
-        {% if forloop.first or forloop.counter|divisibleby:2 %}
-        <div class="projects-row">
-        {% endif %}
-        <div class="project-card">
-            <div class="project-photos">
-                {% for photo in project.photos.all %}
-                <img src="{{ photo.image.url }}" alt="Project photo" class="project-photo photo-{{ photo.order }}">
-                <p>{{ project.name }}</p>
-                {% endfor %}
+    <div class="container mt-5" id="projects">
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-6">
+                <div class="project-card">
+                    <a href="{{ project.link }}" target="_blank" class="project-link">
+                        <div class="project-photos">
+                            {% for photo in project.photos.all %}
+                            <img src="{{ photo.image.url }}" alt="Project photo" class="project-photo photo-{{ photo.order }}">
+                            {% endfor %}
+                        </div>
+                    </a>
+                    <h3 class="project-name">{{ project.name }}</h3>
+                    <a href="{{ project.link }}" target="_blank" class="project-button-link">
+                        <button class="project-button">посмотреть</button>
+                    </a>
+                </div>
             </div>
-            <button class="project-button">Подробнее</button>
+            {% if forloop.counter|divisibleby:2 %}
         </div>
-        {% if forloop.counter|divisibleby:2 or forloop.last %}
+        <div class="row">
+            {% endif %}
+            {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
     </div>
 </div>
-
+<div class="container mt-5">
+    <h5>что-то</h5>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -8,6 +8,7 @@ class ProjectPhotoInline(admin.StackedInline):
 
 class ProjectAdmin(admin.ModelAdmin):
     inlines = [ProjectPhotoInline]
+    list_display = ('name', 'link')
 
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(ProjectPhoto)
