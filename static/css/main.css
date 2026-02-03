@@ -112,3 +112,101 @@
 .folder-card:hover .folder-back {
     transform: rotateY(360deg);
 }
+
+/* Стили для контейнера проектов */
+.projects-container {
+    width: 100%;
+    margin: 30px 0;
+}
+
+/* Стили для строки проектов */
+.projects-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Стили для карточки проекта */
+.project-card {
+    flex: 0 0 48%;
+    position: relative;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стили для контейнера фотографий проекта */
+.project-photos {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стили для фотографий проекта */
+.project-photo {
+    position: absolute;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: all 0.5s ease;
+}
+
+/* Позиционирование фотографий по order */
+.photo-1 {
+    transform: rotate(-15deg) translate(-80px, 20px);
+    z-index: 1;
+}
+
+.photo-2 {
+    transform: translate(0, 0);
+    z-index: 2;
+}
+
+.photo-3 {
+    transform: rotate(15deg) translate(80px, 20px);
+    z-index: 3;
+}
+
+.photo-4 {
+    transform: translate(0, 80px);
+    z-index: 4;
+}
+
+/* Эффект при наведении */
+.project-card:hover .photo-1 {
+    transform: translate(-140px, -80px);
+}
+
+.project-card:hover .photo-2 {
+    transform: translate(0, -100px);
+}
+
+.project-card:hover .photo-3 {
+    transform: translate(140px, -80px);
+}
+
+.project-card:hover .photo-4 {
+    transform: translate(0, 100px);
+}
+
+/* Стили для кнопки "Подробнее" */
+.project-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.project-button:hover {
+    background-color: #333;
+}
