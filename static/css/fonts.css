@@ -67,6 +67,14 @@ p {
 .custom-button:nth-child(2) {
     background: black;
 }
+.custom-button:hover {
+    transition: all 0.5s ease;
+    background-color: rgb(20, 35, 168);
+}
+.custom-button:nth-child(2):hover {
+    transition: all 0.5s ease;
+    background-color: rgb(42, 42, 43);
+}
 
 .button-text {
     margin: 0;

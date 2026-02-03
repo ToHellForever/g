@@ -16,6 +16,28 @@
     text-decoration: none;
     color: black;
     font-family: 'Gilroy-Light', sans-serif;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu-text::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: black;
+    transition: width 0.3s ease;
+}
+
+.menu-text:hover::after {
+    width: 100%;
+}
+
+.menu-text:hover {
+    color: #3a2212;
+    transform: scale(1.05);
 }
 .menu-items a:nth-child(5) {
     margin-right: 30px !important;
@@ -37,3 +59,8 @@
     margin-top: 5px;
 }
 
+
+.icon:hover {
+    transition: 0.3s;
+    transform: scale(1.1);
+}
