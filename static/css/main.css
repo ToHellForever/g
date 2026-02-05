@@ -1,3 +1,7 @@
+body {
+    background: rgba(31, 31, 31, 1);
+}
+
 .three-billets {
     display: flex;
     flex-direction: column;
@@ -34,27 +38,6 @@
     margin-bottom: 30px;
 }
 
-.custom-button {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.button-text {
-    max-width: 300px;
-    font-size: 14px;
-    line-height: 1.4;
-}
-
-.hr {
-    width: 100%;
-    border: none;
-    border-top: 1px solid #000;
-    margin: 20px 0;
-}
 
 /* Стили для контейнера папок */
 .folders-container {
@@ -199,8 +182,8 @@
 /* Стили для кнопки "Подробнее" */
 .project-button {
     padding: 1px 60px 4px 60px;
-    background-color: rgba(28, 49, 230, 1);
-    color: #fff;
+    background-color: rgba(204, 236, 65, 1);
+    color: rgba(31, 31, 31, 1);
     border: none;
     border-radius: 22.25px;
     cursor: pointer;
@@ -211,5 +194,9 @@
 
 .project-button:hover {
     transition: all 0.5s ease;
-    background-color: rgb(20, 35, 168);
+    background-color: rgb(152, 177, 41);
+}
+
+.after-project {
+    margin-top: 110px !important;
 }
