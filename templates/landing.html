@@ -135,15 +135,21 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
-            speed: 800, // Замедление анимации
             freeMode: {
                 enabled: true,
                 momentum: true,
-                momentumRatio: 0.5,
-                momentumVelocityRatio: 0.5,
+                momentumRatio: 1,
+                momentumVelocityRatio: 1,
+                momentumBounce: true,
+                momentumBounceRatio: 1,
             },
+            resistance: true,
+            resistanceRatio: 0.75,
+            centeredSlides: false,
+            slideToClickedSlide: true,
             mousewheel: {
                 forceToAxis: true, // Разрешить прокрутку только по одной оси
+                sensitivity: 1,
             },
             grabCursor: true, // Курсор в виде руки при наведении
         });
