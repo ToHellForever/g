@@ -17,3 +17,9 @@ class ProjectPhoto(models.Model):
 
     class Meta:
         ordering = ['order']
+
+class AboutCarousel(models.Model):
+    image = models.ImageField(upload_to='carousel_images/', help_text="Изображение для слайда", blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = "Слайды в карусели"
