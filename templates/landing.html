@@ -124,67 +124,17 @@
     </div>
 </div>
 
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const swiper = new Swiper('.about-carousel', {
-            loop: false,
+            loop: true,
             slidesPerView: 3.5,
             spaceBetween: 20,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            freeMode: {
-                enabled: true,
-                momentum: true,
-                momentumRatio: 1,
-                momentumVelocityRatio: 1,
-                momentumBounce: true,
-                momentumBounceRatio: 1,
-            },
-            resistance: true,
-            resistanceRatio: 0.75,
-            centeredSlides: false,
-            slideToClickedSlide: true,
-            mousewheel: {
-                forceToAxis: true, // Разрешить прокрутку только по одной оси
-                sensitivity: 1,
-            },
-            grabCursor: true, // Курсор в виде руки при наведении
+            freeMode: true,
+            grabCursor: true,
         });
-
-        const carouselContainer = document.querySelector('.about-carousel-container');
-
-        document.addEventListener('wheel', function(e) {
-            const isCarouselInView = isElementInViewport(carouselContainer);
-            
-            if (isCarouselInView) {
-                if ((e.deltaY > 0 && swiper.isEnd) || (e.deltaY < 0 && swiper.isBeginning)) {
-                    return; // Позволяем прокрутку страницы, если достигли границ карусели
-                }
-                
-                e.preventDefault();
-                
-                if (e.deltaY > 0) {
-                    swiper.slideNext(800);
-                } else {
-                    swiper.slidePrev(800);
-                }
-            }
-        }, { passive: false });
-
-        function isElementInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.bottom >= 0
-            );
-        }
     });
 </script>
-
-
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
