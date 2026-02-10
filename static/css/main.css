@@ -209,6 +209,26 @@ body {
     margin-top: 2rem;
 }
 
+
+.row.three-block-rows {
+    display: flex; /* Применяем Flexbox */
+    /* чтобы не переносились блоки на новую строку */
+    flex-wrap: nowrap;
+}
+
+.three-block-price {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 26px;
+    padding: 15px;
+    margin-right: 15px; /* Добавляем расстояние справа между блоками */
+    width: 32.5%;
+}
+
+/* Убираем лишний отступ у последнего блока */
+.three-block-price:last-child {
+    margin-right: 0;
+}
+
 /* Swiper styles for mobile */
 @media (max-width: 767.98px) {
     .swiper {
