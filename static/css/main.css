@@ -38,7 +38,6 @@ body {
     margin-bottom: 30px;
 }
 
-
 /* Стили для контейнера папок */
 .folders-container {
     display: flex;
@@ -178,7 +177,6 @@ body {
     transform: translate(0, 100px);
 }
 
-
 /* Стили для кнопки "Подробнее" */
 .project-button {
     padding: 1px 60px 4px 60px;
@@ -200,7 +198,6 @@ body {
 .after-project {
     margin-top: 110px !important;
 }
-
 
 /* карусель */
 .carousel-image {
