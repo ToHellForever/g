@@ -133,6 +133,21 @@
             freeMode: true,
             grabCursor: true,
         });
+
+        const carouselContainer = document.querySelector('.about-carousel-container');
+        carouselContainer.addEventListener('wheel', function(e) {
+            if (swiper.isBeginning && e.deltaY < 0) {
+                // В начале карусели, прокрутка вверх — разрешаем прокрутку страницы
+                return;
+            }
+            if (swiper.isEnd && e.deltaY > 0) {
+                // В конце карусели, прокрутка вниз — разрешаем прокрутку страницы
+                return;
+            }
+            // Блокируем прокрутку страницы и прокручиваем карусель
+            e.preventDefault();
+            swiper.slideTo(swiper.activeIndex + (e.deltaY > 0 ? 1 : -1));
+        });
     });
 </script>
 
