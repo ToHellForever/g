@@ -23,3 +23,25 @@ class AboutCarousel(models.Model):
 
     class Meta:
         verbose_name_plural = "Слайды в карусели"
+
+class Service(models.Model):
+    name = models.CharField(max_length=200, verbose_name="Название услуги")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Услуга"
+        verbose_name_plural = "Услуги"
+
+class SubService(models.Model):
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='subservices', verbose_name="Услуга")
+    name = models.CharField(max_length=200, verbose_name="Название подуслуги")
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
+
+    def __str__(self):
+        return f"{self.service.name} - {self.name}"
+
+    class Meta:
+        verbose_name = "Подуслуга"
+        verbose_name_plural = "Подуслуги"

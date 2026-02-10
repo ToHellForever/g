@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, ProjectPhoto, AboutCarousel
+from .models import Project, ProjectPhoto, AboutCarousel, Service, SubService
 
 class ProjectPhotoInline(admin.StackedInline):
     model = ProjectPhoto
@@ -16,3 +16,20 @@ class AboutCarouselAdmin(admin.ModelAdmin):
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(ProjectPhoto)
 admin.site.register(AboutCarousel, AboutCarouselAdmin)
+
+class SubServiceInline(admin.TabularInline):
+    model = SubService
+    extra = 1
+
+class ServiceAdmin(admin.ModelAdmin):
+    inlines = [SubServiceInline]
+    list_display = ('name',)
+    search_fields = ('name',)
+
+class SubServiceAdmin(admin.ModelAdmin):
+    list_display = ('name', 'service', 'price')
+    list_filter = ('service',)
+    search_fields = ('name', 'service__name')
+
+admin.site.register(Service, ServiceAdmin)
+admin.site.register(SubService, SubServiceAdmin)
