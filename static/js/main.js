@@ -1,9 +1,10 @@
 function toggleService(element) {
     const content = element.nextElementSibling;
     const arrow = element.querySelector('.arrow');
+    const isExpanded = content.style.maxHeight && content.style.maxHeight !== '0px';
 
-    if (content.style.maxHeight) {
-        content.style.maxHeight = null;
+    if (isExpanded) {
+        content.style.maxHeight = '0';
         content.style.opacity = 0;
         content.style.paddingTop = 0;
         arrow.style.transform = 'rotate(0deg)';
@@ -11,7 +12,6 @@ function toggleService(element) {
         content.style.maxHeight = content.scrollHeight + 'px';
         content.style.opacity = 1;
         content.style.paddingTop = '15px';
-        content.style.display = 'block';
         arrow.style.transform = 'rotate(180deg)';
     }
 }
