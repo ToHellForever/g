@@ -25,9 +25,8 @@ body {
     margin-top: auto;
 }
 
-.big-g {
-    width: 55%;
-    height: auto;
+.price {
+    white-space: nowrap;
 }
 
 .button-text-container {
@@ -209,7 +208,6 @@ body {
     margin-top: 2rem;
 }
 
-
 .row.three-block-rows {
     display: flex; /* Применяем Flexbox */
     /* чтобы не переносились блоки на новую строку */
@@ -251,4 +249,66 @@ body {
     .swiper-slide-prev, .swiper-slide-next {
         transform: scale(0.9);
     }
+}
+
+/* Стили для списка услуг */
+.services-list {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.service-item {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.service-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+.service-content {
+    display: none;
+    padding-top: 15px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease, padding-top 0.5s ease;
+}
+
+.service-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-content li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted #ccc;
+    margin: 0 10px;
+    height: 1em;
+    line-height: 1em;
+}
+
+.price {
+    white-space: nowrap;
 }

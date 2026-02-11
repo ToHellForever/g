@@ -136,7 +136,7 @@
         <div class='col-4 three-block-price mt-3'>
             <img src="/media/icon/ok-icon.png" alt="">
             <p class='three-block-p'>Консультация - бесплатно</p>
-        </div> 
+        </div>
         <div class='col-4 three-block-price mt-3'>
             <img src="/media/icon/ok-icon.png" alt="">
             <p class='three-block-p'>Подберём решение под любой бюджет</p>
@@ -146,79 +146,30 @@
             <p class='three-block-p'>Без навязывания лишних услуг</p>
         </div>
     </div>
+
+    <div class="services-list">
+        {% for service in services %}
+        <div class="service-item">
+            <div class="service-header" onclick="toggleService(this)">
+                <h3>{{ service.name }}</h3>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="service-content">
+                <ul>
+                    {% for subservice in service.subservices.all %}
+                    <li>{{ subservice.name }}<span class="dots"></span><span class="price">от {{ subservice.price }} ₽</span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
 
-
-
-
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let swiper;
-
-        function initSwiper() {
-            if (window.innerWidth <= 767.98) {
-                if (swiper) swiper.destroy(true, true);
-
-                swiper = new Swiper('.about-carousel', {
-                    loop: true,
-                    slidesPerView: 1.2,
-                    spaceBetween: 20,
-                    centeredSlides: true,
-                    grabCursor: true,
-                    effect: 'coverflow',
-                    coverflowEffect: {
-                        rotate: 0,
-                        stretch: 0,
-                        depth: 100,
-                        modifier: 2.5,
-                        slideShadows: true,
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-                });
-            } else {
-                if (swiper) swiper.destroy(true, true);
-
-                swiper = new Swiper('.about-carousel', {
-                    loop: false,
-                    slidesPerView: 3.5,
-                    spaceBetween: 20,
-                    freeMode: true,
-                    grabCursor: true,
-                    speed: 500,
-                });
-
-                const carouselContainer = document.querySelector('.about-carousel-container');
-                carouselContainer.addEventListener('wheel', function(e) {
-                    if (swiper.isBeginning && e.deltaY < 0) {
-                        return;
-                    }
-                    if (swiper.isEnd && e.deltaY > 0) {
-                        return;
-                    }
-                    e.preventDefault();
-                    swiper.slideTo(swiper.activeIndex + (e.deltaY > 0 ? 1 : -1));
-                });
-            }
-        }
-
-        initSwiper();
-
-        window.addEventListener('resize', function() {
-            initSwiper();
-        });
-    });
-</script>
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   </body>
 </html>
