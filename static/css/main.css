@@ -227,6 +227,78 @@ body {
     margin-right: 0;
 }
 
+
+
+/* Стили для списка услуг */
+.services-list {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+    overflow: visible;
+}
+
+.service-item {
+    border: 2px solid rgba(204, 236, 65, 1);
+    border-radius: 72px;
+    padding: 20px;
+    margin-top: 0px;
+}
+
+.service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.arrow {
+    width: 3.2rem;
+    height: 3.2rem;
+}
+
+
+.service-content {
+    display: block;
+    padding: 30px;
+    overflow: visible;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding-top 0.3s ease;
+}
+
+.service-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-content li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted #ccc;
+    margin: 3px 0px;
+    height: 1em;
+    line-height: 1em;
+}
+
+.price {
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
 /* Swiper styles for mobile */
 @media (max-width: 767.98px) {
     .swiper {
@@ -249,66 +321,4 @@ body {
     .swiper-slide-prev, .swiper-slide-next {
         transform: scale(0.9);
     }
-}
-
-/* Стили для списка услуг */
-.services-list {
-    width: 100%;
-    margin-top: 30px;
-}
-
-.service-item {
-    border-bottom: 1px solid #eee;
-    padding: 15px 0;
-}
-
-.service-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-
-.service-header h3 {
-    margin: 0;
-    font-size: 1.2rem;
-}
-
-.arrow {
-    font-size: 1.2rem;
-    transition: transform 0.3s;
-}
-
-.service-content {
-    display: block;
-    padding-top: 0;
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease, padding-top 0.3s ease;
-}
-
-.service-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.service-content li {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.dots {
-    flex-grow: 1;
-    border-bottom: 1px dotted #ccc;
-    margin: 0 10px;
-    height: 1em;
-    line-height: 1em;
-}
-
-.price {
-    white-space: nowrap;
 }

@@ -152,12 +152,12 @@
         <div class="service-item">
             <div class="service-header" onclick="toggleService(this)">
                 <h3>{{ service.name }}</h3>
-                <span class="arrow">▼</span>
+                <span><img src="/media/icon/arrow-list.png" alt="" class="arrow"></span>
             </div>
             <div class="service-content">
                 <ul>
                     {% for subservice in service.subservices.all %}
-                    <li>{{ subservice.name }}<span class="dots"></span><span class="price">от {{ subservice.price }} ₽</span></li>
+                    <li class='li-service'>{{ subservice.name }}<span class="dots"></span><span class="price">от {{ subservice.price }} ₽</span></li>
                     {% endfor %}
                 </ul>
             </div>

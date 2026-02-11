@@ -9,10 +9,10 @@ function toggleService(element) {
         content.style.paddingTop = 0;
         arrow.style.transform = 'rotate(0deg)';
     } else {
-        content.style.maxHeight = content.scrollHeight + 'px';
+        content.style.maxHeight = content.scrollHeight + 20 + 'px';
         content.style.opacity = 1;
         content.style.paddingTop = '15px';
-        arrow.style.transform = 'rotate(180deg)';
+        arrow.style.transform = 'rotate(270deg)';
     }
 }
 
