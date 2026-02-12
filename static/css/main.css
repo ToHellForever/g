@@ -245,6 +245,9 @@ body {
     border-radius: 72px;
     padding: 20px;
     margin-top: 0px;
+    position: relative;
+    min-height: 120px;
+    transition: min-height 0.3s ease;
 }
 
 .service-header {
@@ -255,15 +258,25 @@ body {
 }
 
 .arrow {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 5.2rem;
+    height: 5.2rem;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
+.service-arrow {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.arrow.expanded {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+}
 
 .service-content {
-    display: block;
     padding: 30px;
-    overflow: visible;
     opacity: 0;
     transition: max-height 0.3s ease, opacity 0.3s ease, padding-top 0.3s ease;
 }
