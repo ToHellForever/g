@@ -243,10 +243,10 @@ body {
 .service-item {
     border: 2px solid rgba(204, 236, 65, 1);
     border-radius: 72px;
-    padding: 20px;
+    padding: 0px;
     margin-top: 0px;
     position: relative;
-    min-height: 120px;
+    max-height: 80px;
     transition: min-height 0.3s ease;
 }
 
@@ -258,8 +258,8 @@ body {
 }
 
 .arrow {
-    width: 5.2rem;
-    height: 5.2rem;
+    width: 7.2rem;
+    height: 7.2rem;
     transition: all 0.3s ease;
     position: relative;
 }

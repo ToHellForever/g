@@ -20,7 +20,7 @@ function toggleService(headerElement) {
         content.style.paddingTop = '25px';
         arrow.style.transform = 'rotate(270deg)';
         arrow.classList.add('expanded');
-        serviceItem.style.minHeight = (120 + content.scrollHeight + 20) + 'px';
+        serviceItem.style.minHeight = (120 + content.scrollHeight + 60) + 'px';
     }
 }
 
