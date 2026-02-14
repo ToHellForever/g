@@ -229,88 +229,109 @@ body {
 
 
 
-/* Стили для списка услуг */
-.services-list {
+/* Custom Accordion Styles */
+.custom-accordion {
     width: 100%;
     margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 0;
-    overflow: visible;
 }
 
-.service-item {
+.custom-accordion-item {
     border: 2px solid rgba(204, 236, 65, 1);
-    border-radius: 72px;
-    padding: 0px;
-    margin-top: 0px;
-    position: relative;
-    max-height: 80px;
-    transition: min-height 0.3s ease;
+    margin-top: 25px;
+    background-color: transparent;
+    border-radius: 72px !important;
+    overflow: hidden;
 }
 
-.service-header {
+.custom-accordion-item .accordion-header {
+    border-radius: 72px !important;
+    margin-top: -30px;
+    height: 130px;
+}
+
+.custom-accordion-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
-}
-
-.arrow {
-    width: 7.2rem;
-    height: 7.2rem;
-    transition: all 0.3s ease;
+    padding: 20px 40px;
+    background-color: transparent;
+    border: none;
+    font-size: 2.5rem;
+    font-family: 'Gilroy-Light', sans-serif;
+    color: white;
+    width: 100%;
+    text-align: left;
+    border-radius: 72px !important;
     position: relative;
 }
-
-.service-arrow {
-    cursor: pointer;
-    display: inline-block;
+.accordion-button:not(.collapsed) {
+    color: white;
+    background-color: transparent;
 }
 
-.arrow.expanded {
-    position: absolute;
-    bottom: 15px;
-    right: 20px;
+.custom-accordion-button::after {
+    display: none !important;
 }
 
-.service-content {
-    padding: 30px;
-    opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease, padding-top 0.3s ease;
+.custom-accordion-button:not(.collapsed) {
+    background-color: transparent;
+    box-shadow: none;
 }
 
-.service-content ul {
+.custom-accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.custom-arrow {
+    width: 7.2rem;
+    height: 7.2rem;
+    transition: transform 0.3s ease;
+    position: relative;
+    margin-right: -50px;
+}
+
+.custom-accordion-button:not(.collapsed) .custom-arrow {
+    transform: rotate(270deg);
+}
+
+.custom-accordion-body {
+    padding: 0 30px 30px;
+    border-bottom-left-radius: 72px !important;
+    border-bottom-right-radius: 72px !important;
+}
+
+.custom-accordion-item .accordion-collapse {
+    border-bottom-left-radius: 72px !important;
+    border-bottom-right-radius: 72px !important;
+}
+
+.subservices-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.service-content li {
+.subservice-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 1px 0;
+    color: white;
 }
 
 .dots {
     flex-grow: 1;
     border-bottom: 1px dotted #ccc;
-    margin: 3px 0px;
+    margin: 0 10px;
     height: 1em;
     line-height: 1em;
 }
 
 .price {
     white-space: nowrap;
+    color: white;
 }
-
-
-
-
-
-
-
-
 
 /* Swiper styles for mobile */
 @media (max-width: 767.98px) {

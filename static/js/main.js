@@ -1,51 +1,5 @@
-function toggleService(headerElement) {
-    // Находим родительский элемент service-item
-    const serviceItem = headerElement.closest('.service-item');
-    // Находим контент внутри service-item
-    const content = serviceItem.querySelector('.service-content');
-    // Находим стрелку внутри headerElement
-    const arrow = headerElement.querySelector('.arrow');
-    const isExpanded = content.style.maxHeight && content.style.maxHeight !== '0px';
-
-    if (isExpanded) {
-        content.style.maxHeight = '0';
-        content.style.opacity = 0;
-        content.style.paddingTop = 0;
-        arrow.style.transform = 'rotate(0deg)';
-        arrow.classList.remove('expanded');
-        serviceItem.style.minHeight = '120px';
-    } else {
-        content.style.maxHeight = content.scrollHeight + 20 + 'px';
-        content.style.opacity = 1;
-        content.style.paddingTop = '25px';
-        arrow.style.transform = 'rotate(270deg)';
-        arrow.classList.add('expanded');
-        serviceItem.style.minHeight = (120 + content.scrollHeight + 60) + 'px';
-    }
-}
-
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
-    // Инициализация блоков услуг
-    const serviceItems = document.querySelectorAll('.service-item');
-    serviceItems.forEach(item => {
-        const content = item.querySelector('.service-content');
-        const header = item.querySelector('.service-header');
-        const arrow = header.querySelector('.arrow');
-
-        // Устанавливаем начальное состояние
-        content.style.maxHeight = '0';
-        content.style.opacity = 0;
-        content.style.paddingTop = 0;
-        arrow.style.transform = 'rotate(0deg)';
-        item.style.minHeight = '120px';
-
-        // Добавляем обработчик клика на стрелку
-        arrow.addEventListener('click', function(e) {
-            e.stopPropagation(); // Предотвращаем всплытие события
-            toggleService(header);
-        });
-    });
 
     // Инициализация Swiper
     let swiper;

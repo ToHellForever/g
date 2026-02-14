@@ -126,14 +126,3 @@ p {
 
 
 
-.service-header h3 {
-    margin-left: 30px;
-    margin-bottom: 0px !important;
-    font-size: 1.5rem;
-    color: rgba(225, 225, 225, 1);
-    font-family: 'Gilroy-Light', sans-serif !important;
-}
-
-.service-content {
-    color: white;
-}

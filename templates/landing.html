@@ -131,7 +131,6 @@
     <p class="desc-p">Каждый проект индивидуален, поэтому окончательная стоимость рассчитывается после обсуждения всех деталей: целей сайта, функционала, объёма работ и сроков.
 Цены, указанные в прайсе, являются ориентировочными и помогают понять порядок бюджета. Итоговая стоимость может отличаться как в меньшую, так и в большую сторону — всё зависит от ваших задач.
 Оставьте заявку и расскажите, какой проект вы хотите получить. Мы проконсультируем вас, предложим оптимальное решение и подскажем, как реализовать проект максимально эффективно.</p>
-    
     <div class='row three-block-rows'>
         <div class='col-4 three-block-price mt-3'>
             <img src="/media/icon/ok-icon.png" alt="">
@@ -147,23 +146,35 @@
         </div>
     </div>
 
-    <div class="services-list">
+    <div class="accordion custom-accordion" id="servicesAccordion">
         {% for service in services %}
-        <div class="service-item">
-            <div class="service-header" onclick="toggleService(this)">
-                <h3>{{ service.name }}</h3>
-                <span class="service-arrow"><img src="/media/icon/arrow-list.png" alt="" class="arrow"></span>
-            </div>
-            <div class="service-content">
-                <ul>
-                    {% for subservice in service.subservices.all %}
-                    <li class='li-service'>{{ subservice.name }}<span class="dots"></span><span class="price">от {{ subservice.price }} ₽</span></li>
-                    {% endfor %}
-                </ul>
+        <div class="accordion-item custom-accordion-item">
+            <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+                <button class="accordion-button custom-accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false"
+                        aria-controls="collapse{{ forloop.counter }}">
+                    <span>{{ service.name }}</span>
+                    <img src="/media/icon/arrow-list.png" alt="" class="custom-arrow">
+                </button>
+            </h2>
+            <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse"
+                 aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#servicesAccordion">
+                <div class="accordion-body custom-accordion-body">
+                    <ul class="subservices-list">
+                        {% for subservice in service.subservices.all %}
+                        <li class="subservice-item">
+                            <span>{{ subservice.name }}</span>
+                            <span class="dots"></span>
+                            <span class="price">от {{ subservice.price }} ₽</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
         {% endfor %}
     </div>
+
 </div>
 
 
