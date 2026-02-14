@@ -25,9 +25,6 @@ body {
     margin-top: auto;
 }
 
-.price {
-    white-space: nowrap;
-}
 
 .button-text-container {
     display: flex;
@@ -245,8 +242,8 @@ body {
 
 .custom-accordion-item .accordion-header {
     border-radius: 72px !important;
-    margin-top: -30px;
-    height: 130px;
+    margin-top: -20px;
+    height: 140px;
 }
 
 .custom-accordion-button {
@@ -322,16 +319,12 @@ body {
 
 .dots {
     flex-grow: 1;
-    border-bottom: 1px dotted #ccc;
-    margin: 0 10px;
+    border-bottom: 4px dotted #ccc;
+    margin: 0 3px;
     height: 1em;
     line-height: 1em;
 }
 
-.price {
-    white-space: nowrap;
-    color: white;
-}
 
 /* Swiper styles for mobile */
 @media (max-width: 767.98px) {
