@@ -230,7 +230,7 @@ body {
 }
 
 .custom-accordion-item {
-    border: 2px solid rgba(204, 236, 65, 1);
+    border: 2px solid rgba(204, 236, 65, 1) !important;
     margin-top: 25px;
     background-color: transparent;
     border-radius: 72px !important;
@@ -239,7 +239,7 @@ body {
 
 .custom-accordion-item .accordion-header {
     border-radius: 72px !important;
-    margin-top: -20px;
+    margin-top: -30px;
     height: 140px;
 }
 
