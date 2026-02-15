@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const arrowContainer = button.querySelector('.arrow-container');
         const arrow = button.querySelector('.custom-arrow');
         const subservicesList = button.closest('.custom-accordion-item').querySelector('.subservices-list');
-        
+
         // Добавляем клон стрелки в список подуслуг для плавного появления
         const arrowClone = arrow.cloneNode(true);
         arrowClone.classList.add('arrow-clone');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             const accordionItem = this.closest('.custom-accordion-item');
             const isCollapsed = this.classList.contains('collapsed');
-            
+
             if (isCollapsed) {
                 // При закрытии аккордеона
                 arrow.style.transform = 'rotate(0deg)';
@@ -92,3 +92,4 @@ document.addEventListener('DOMContentLoaded', function() {
         initSwiper();
     });
 });
+
