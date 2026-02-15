@@ -20,16 +20,33 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             const accordionItem = this.closest('.custom-accordion-item');
             const isCollapsed = this.classList.contains('collapsed');
+            const subservicesList = accordionItem.querySelector('.subservices-list');
+            const subserviceItems = subservicesList.querySelectorAll('.subservice-item');
 
             if (isCollapsed) {
                 // При закрытии аккордеона
                 arrow.style.transform = 'rotate(0deg)';
                 arrow.style.opacity = '1';
                 arrowClone.style.opacity = '0';
+
+                // Добавляем класс fade-out для анимации исчезновения
+                subserviceItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('fade-out');
+                    }, index * 50);
+                });
             } else {
                 // При открытии аккордеона
                 arrow.style.opacity = '0';
                 arrowClone.style.opacity = '1';
+
+                // Убираем класс fade-out и добавляем класс fade-in с задержкой для эффекта появления по одной
+                subserviceItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.remove('fade-out');
+                        item.classList.add('fade-in');
+                    }, index * 200); // Задержка 200 мс между появлением каждого элемента
+                });
             }
         });
     });
