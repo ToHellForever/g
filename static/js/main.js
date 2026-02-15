@@ -5,19 +5,31 @@ document.addEventListener('DOMContentLoaded', function() {
     accordionButtons.forEach(button => {
         const arrowContainer = button.querySelector('.arrow-container');
         const arrow = button.querySelector('.custom-arrow');
+        const subservicesList = button.closest('.custom-accordion-item').querySelector('.subservices-list');
+        
+        // Добавляем клон стрелки в список подуслуг для плавного появления
+        const arrowClone = arrow.cloneNode(true);
+        arrowClone.classList.add('arrow-clone');
+        arrowClone.style.opacity = '0';
+        arrowClone.style.position = 'relative';
+        arrowClone.style.float = 'right';
+        arrowClone.style.margin = '10px 0 0 auto';
+        arrowClone.style.transform = 'rotate(270deg)';
+        subservicesList.appendChild(arrowClone);
 
         button.addEventListener('click', function() {
             const accordionItem = this.closest('.custom-accordion-item');
-            const subservicesList = accordionItem.querySelector('.subservices-list');
-
-            if (this.classList.contains('collapsed')) {
-                // При закрытии аккордеона возвращаем стрелку в кнопку
+            const isCollapsed = this.classList.contains('collapsed');
+            
+            if (isCollapsed) {
+                // При закрытии аккордеона
                 arrow.style.transform = 'rotate(0deg)';
-                arrowContainer.appendChild(arrow);
+                arrow.style.opacity = '1';
+                arrowClone.style.opacity = '0';
             } else {
-                // При открытии аккордеона перемещаем стрелку под список подуслуг
-                arrow.style.transform = 'rotate(270deg)';
-                subservicesList.appendChild(arrow);
+                // При открытии аккордеона
+                arrow.style.opacity = '0';
+                arrowClone.style.opacity = '1';
             }
         });
     });

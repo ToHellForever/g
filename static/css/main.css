@@ -266,6 +266,7 @@ body {
 .arrow-container {
     position: relative;
     margin-left: auto;
+    min-height: 7.2rem; /* Резервируем пространство для стрелки */
 }
 .accordion-button:not(.collapsed) {
     color: white;
@@ -301,9 +302,7 @@ body {
     float: right;
 }
 
-.custom-accordion-button:not(.collapsed) .custom-arrow {
-    transform: rotate(270deg);
-}
+
 
 .custom-accordion-body {
     padding: 0 30px 30px;
@@ -320,6 +319,8 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+    position: relative;
+    min-height: 7.2rem; /* Резервируем пространство для стрелки */
 }
 
 .subservice-item {
