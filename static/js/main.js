@@ -1,5 +1,26 @@
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
+// Логика для аккордеона
+    const accordionButtons = document.querySelectorAll('.custom-accordion-button');
+    accordionButtons.forEach(button => {
+        const arrowContainer = button.querySelector('.arrow-container');
+        const arrow = button.querySelector('.custom-arrow');
+
+        button.addEventListener('click', function() {
+            const accordionItem = this.closest('.custom-accordion-item');
+            const subservicesList = accordionItem.querySelector('.subservices-list');
+
+            if (this.classList.contains('collapsed')) {
+                // При закрытии аккордеона возвращаем стрелку в кнопку
+                arrow.style.transform = 'rotate(0deg)';
+                arrowContainer.appendChild(arrow);
+            } else {
+                // При открытии аккордеона перемещаем стрелку под список подуслуг
+                arrow.style.transform = 'rotate(270deg)';
+                subservicesList.appendChild(arrow);
+            }
+        });
+    });
 
     // Инициализация Swiper
     let swiper;

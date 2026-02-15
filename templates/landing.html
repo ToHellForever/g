@@ -150,11 +150,13 @@
         {% for service in services %}
         <div class="accordion-item custom-accordion-item">
             <h2 class="accordion-header" id="heading{{ forloop.counter }}">
-                <button class="accordion-button custom-accordion-button collapsed" type="button" data-bs-toggle="collapse"
+<button class="accordion-button custom-accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false"
                         aria-controls="collapse{{ forloop.counter }}">
                     <span class="service-name">{{ service.name }}</span>
-                    <img src="/media/icon/arrow-list.png" alt="" class="custom-arrow">
+                    <div class="arrow-container">
+                        <img src="/media/icon/arrow-list.png" alt="" class="custom-arrow">
+                    </div>
                 </button>
             </h2>
             <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse"

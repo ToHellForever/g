@@ -260,6 +260,12 @@ body {
     text-align: left;
     border-radius: 72px !important;
     position: relative;
+    min-height: 140px;
+}
+
+.arrow-container {
+    position: relative;
+    margin-left: auto;
 }
 .accordion-button:not(.collapsed) {
     color: white;
@@ -286,6 +292,13 @@ body {
     transition: transform 0.3s ease;
     position: relative;
     margin-right: -50px;
+}
+
+.subservices-list .custom-arrow {
+    position: relative;
+    margin: 10px 0 0 auto;
+    display: block;
+    float: right;
 }
 
 .custom-accordion-button:not(.collapsed) .custom-arrow {
