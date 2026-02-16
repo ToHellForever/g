@@ -161,5 +161,38 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', function() {
         initSwiper();
     });
+
+    // Функция для проверки видимости элемента
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+            rect.bottom >= 0
+        );
+    }
+
+    // Функция для обработки анимации блоков
+    function handleStageBlockAnimation() {
+        const stageBlocks = document.querySelectorAll('.stage-block, .stage-block-2');
+        
+        stageBlocks.forEach((block, index) => {
+            if (isElementInViewport(block) && !block.classList.contains('animate-left') && !block.classList.contains('animate-right')) {
+                // Применяем анимацию в зависимости от порядкового номера
+                if (index % 2 === 0) {
+                    block.classList.add('animate-right');
+                } else {
+                    block.classList.add('animate-left');
+                }
+            }
+        });
+    }
+
+    // Обработчик скролла
+    window.addEventListener('scroll', handleStageBlockAnimation);
+
+    // Проверяем видимость блоков при загрузке страницы
+    document.addEventListener('DOMContentLoaded', function() {
+        handleStageBlockAnimation();
+    });
 });
 
