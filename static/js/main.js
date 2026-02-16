@@ -1,14 +1,16 @@
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
     // Обработка модального окна
-    const floatingFormButton = document.getElementById('floatingFormButton');
+    const floatingFormButtons = document.querySelectorAll('#floatingFormButton');
     const modalOverlay = document.getElementById('formModalOverlay');
     const modalClose = document.getElementById('modalClose');
     const contactForm = document.getElementById('contactForm');
 
-    if (floatingFormButton && modalOverlay && modalClose && contactForm) {
-        floatingFormButton.addEventListener('click', function() {
-            modalOverlay.style.display = 'flex';
+    if (floatingFormButtons.length > 0 && modalOverlay && modalClose && contactForm) {
+        floatingFormButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                modalOverlay.style.display = 'flex';
+            });
         });
 
         modalClose.addEventListener('click', function() {
