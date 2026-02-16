@@ -191,3 +191,25 @@ p {
 .stage-number-2  {
     color: rgba(0, 0, 0, 1);
 }
+
+
+
+.start-text {
+    font-family: 'Gilroy-Light', sans-serif !important;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: rgba(225, 225, 225, 1);
+}
+
+.button-form {
+    font-family: 'Gilroy-ExtraBold', sans-serif !important;
+    font-size: 2.2rem;
+    font-weight: 700 !important;
+    color: rgba(0, 0, 0, 1);
+    background: rgba(209, 253, 10, 1);
+    border-radius: 20px;
+    padding: 10px 50px 10px 50px;
+    border: none;
+    /* тень вокруг кнопки */
+    box-shadow: 0 0 10px 10px rgba(209, 253, 10, 0.5);
+}

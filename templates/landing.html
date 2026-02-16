@@ -184,7 +184,7 @@
     </div>
 </div>
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <hr class="hr">
     <h2 class="desc-h">ЭТАПЫ РАБОТЫ</h2>
     <p class="desc-p-stages">Мы не просто «рисуем» или «собираем сайт». <br>Мы выстраиваем систему, в которой бизнес начинает говорить уверенно и понятно.</p>
@@ -234,6 +234,12 @@
     </div>
 </div>
 
+<div class='container form-container mt-5'>
+    <p class='start-text'>НАЧНЁМ?</p>
+    <button id="floatingFormButton" class='button-form'>ОБСУДИТЬ ПРОЕКТ</button>
+</div>
+
+
 
     <!-- Кнопка для открытия модального окна -->
     <button class="floating-form-button" id="floatingFormButton">
@@ -254,7 +260,7 @@
             </form>
         </div>
     </div>
-
+{% include 'footer.html' %}
     <script src="{% static 'js/main.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
