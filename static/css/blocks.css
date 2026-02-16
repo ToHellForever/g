@@ -50,10 +50,6 @@
     margin-right: 0;
 }
 
-
-
-
-
 /* Стили для блоков этапов работы */
 .stages-container {
     width: 100%;
@@ -62,42 +58,29 @@
 
 .stage-block {
     display: flex;
-    align-items: flex-start;
-    width: 100%;
-    padding: 20px 0;
-    border-bottom: 1px solid #e0e0e0;
 }
 
-.stage-number {
-    font-size: 48px;
-    font-weight: bold;
-    color: #000;
-    margin-right: 30px;
-    min-width: 60px;
-    text-align: center;
+.stage-block, 
+.stage-block-2 {
+    display: flex;
+    background: transparent;
+    align-items: flex-start;
+    margin-top: 10px;
+    width: 100%;
+    padding: 5px 20px; /* Уменьшаем верхний и нижний padding */
+    border: 2px solid rgba(204, 236, 65, 1);
+    border-radius: 30px;
+}
+.stage-block-2 {
+    background: rgba(225, 225, 225, 1);
+    border: none !important;
+    padding: 5px 20px; /* Уменьшаем верхний и нижний padding */
 }
 
 .stage-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 50px;
 }
 
-.stage-h {
-    font-size: 18px;
-    color: #000;
-    font-weight: bold;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.stage-text {
-    font-size: 16px;
-    color: #333;
-    font-weight: 400;
-}
-
-.stage-block:last-child {
-    border-bottom: none;
-}

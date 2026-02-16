@@ -145,7 +145,47 @@ p {
     font-family: 'Gilroy-Light', sans-serif !important;
 }
 
+
+
+
+
+/* этапы работы */
 .desc-p-stages {
     line-height: 18px !important;
 }
 
+.stage-number,
+.stage-number-2 {
+    font-family: 'Gilroy-Light', sans-serif !important;
+    font-size: 12rem;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    margin-top: 0; 
+    line-height: 1;
+    align-self: flex-start; 
+}
+
+.stage-h,
+.stage-h-2 {
+    font-family: 'Gilroy-Light', sans-serif !important;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+}
+
+.stage-text,
+.stage-text-2 {
+    font-family: 'Gilroy-Light', sans-serif !important;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-top: 0px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+}
+
+.stage-text-2,
+.stage-h-2,
+.stage-number-2  {
+    color: rgba(0, 0, 0, 1);
+}
