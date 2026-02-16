@@ -98,7 +98,8 @@ p {
     font-size: 3rem;
     font-weight: 400;
 }
-.desc-p {
+.desc-p,
+.desc-p-stages {
     color: rgba(224, 224, 224, 1);
     font-family: 'Gilroy-Light', sans-serif !important;
     font-size: 1.1rem;
@@ -143,3 +144,8 @@ p {
     font-size: 1.5rem;
     font-family: 'Gilroy-Light', sans-serif !important;
 }
+
+.desc-p-stages {
+    line-height: 18px !important;
+}
+
