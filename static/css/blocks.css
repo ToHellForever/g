@@ -49,3 +49,55 @@
 .three-block-price:last-child {
     margin-right: 0;
 }
+
+
+
+
+
+/* Стили для блоков этапов работы */
+.stages-container {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.stage-block {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.stage-number {
+    font-size: 48px;
+    font-weight: bold;
+    color: #000;
+    margin-right: 30px;
+    min-width: 60px;
+    text-align: center;
+}
+
+.stage-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.stage-h {
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stage-text {
+    font-size: 16px;
+    color: #333;
+    font-weight: 400;
+}
+
+.stage-block:last-child {
+    border-bottom: none;
+}
