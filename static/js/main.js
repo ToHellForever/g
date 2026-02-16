@@ -9,24 +9,48 @@ document.addEventListener('DOMContentLoaded', function() {
     if (floatingFormButtons.length > 0 && modalOverlay && modalClose && contactForm) {
         floatingFormButtons.forEach(button => {
             button.addEventListener('click', function() {
+                // Показываем оверлей
                 modalOverlay.style.display = 'flex';
+                // Добавляем класс для анимации через небольшую задержку
+                // Это позволяет браузеру сначала применить display: flex
+                setTimeout(() => {
+                    modalOverlay.classList.add('visible');
+                    const modalContent = modalOverlay.querySelector('.modal-content');
+                    if (modalContent) {
+                        modalContent.classList.add('visible');
+                    }
+                }, 10);
             });
         });
 
+        // Функция для закрытия модального окна с анимацией
+        function closeModalWithAnimation() {
+            const modalContent = modalOverlay.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.classList.remove('visible');
+            }
+            modalOverlay.classList.remove('visible');
+
+            // После завершения анимации скрываем оверлей полностью
+            setTimeout(() => {
+                modalOverlay.style.display = 'none';
+            }, 300); // Время должно совпадать с длительностью transition в CSS
+        }
+
         modalClose.addEventListener('click', function() {
-            modalOverlay.style.display = 'none';
+            closeModalWithAnimation();
         });
 
         modalOverlay.addEventListener('click', function(event) {
             if (event.target === modalOverlay) {
-                modalOverlay.style.display = 'none';
+                closeModalWithAnimation();
             }
         });
 
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
             alert('Форма отправлена!');
-            modalOverlay.style.display = 'none';
+            closeModalWithAnimation();
         });
     }
 // Логика для аккордеона
