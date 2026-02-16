@@ -1,3 +1,34 @@
 body {
     background: rgba(31, 31, 31, 1);
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Стили для кнопки в правом нижнем углу */
+.floating-form-button {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 10%;
+    height: auto;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.floating-form-button:hover {
+    transform: scale(1.1);
+}
+
+.floating-form-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }

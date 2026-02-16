@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/folders.css' %}">
     <link rel="stylesheet" href="{% static 'css/projects.css' %}">
     <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
     <link rel="icon" href="/media/icon/g.png" type="png/x-icon">
     <link rel="x-icon" href="/media/icon/g.png" type="png/x-icon">
   </head>
@@ -184,6 +185,26 @@
 
 </div>
 
+
+    <!-- Кнопка для открытия модального окна -->
+    <button class="floating-form-button" id="floatingFormButton">
+        <img src="/media/icon/form-button.png" alt="Form Button">
+    </button>
+
+    <!-- Модальное окно -->
+    <div class="modal-overlay" id="formModalOverlay">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h2 class="modal-title">Оставить заявку</h2>
+            <form class="modal-form" id="contactForm">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="email" placeholder="Ваш email" required>
+                <input type="tel" placeholder="Ваш телефон" required>
+                <textarea placeholder="Ваше сообщение" rows="4" required></textarea>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
 
     <script src="{% static 'js/main.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

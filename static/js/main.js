@@ -1,5 +1,32 @@
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
+    // Обработка модального окна
+    const floatingFormButton = document.getElementById('floatingFormButton');
+    const modalOverlay = document.getElementById('formModalOverlay');
+    const modalClose = document.getElementById('modalClose');
+    const contactForm = document.getElementById('contactForm');
+
+    if (floatingFormButton && modalOverlay && modalClose && contactForm) {
+        floatingFormButton.addEventListener('click', function() {
+            modalOverlay.style.display = 'flex';
+        });
+
+        modalClose.addEventListener('click', function() {
+            modalOverlay.style.display = 'none';
+        });
+
+        modalOverlay.addEventListener('click', function(event) {
+            if (event.target === modalOverlay) {
+                modalOverlay.style.display = 'none';
+            }
+        });
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Форма отправлена!');
+            modalOverlay.style.display = 'none';
+        });
+    }
 // Логика для аккордеона
     const accordionButtons = document.querySelectorAll('.custom-accordion-button');
     accordionButtons.forEach(button => {
