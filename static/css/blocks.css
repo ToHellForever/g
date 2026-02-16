@@ -50,14 +50,13 @@
     margin-right: 0;
 }
 
+
+
+
 /* Стили для блоков этапов работы */
 .stages-container {
     width: 100%;
     margin-top: 30px;
-}
-
-.stage-block {
-    display: flex;
 }
 
 .stage-block, 
@@ -67,20 +66,23 @@
     align-items: flex-start;
     margin-top: 10px;
     width: 100%;
-    padding: 5px 20px; /* Уменьшаем верхний и нижний padding */
+    padding-left: 20px; 
     border: 2px solid rgba(204, 236, 65, 1);
     border-radius: 30px;
 }
 .stage-block-2 {
     background: rgba(225, 225, 225, 1);
     border: none !important;
-    padding: 5px 20px; /* Уменьшаем верхний и нижний padding */
+    padding: 5px 20px; 
 }
 
 .stage-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 50px;
+    justify-content: center;
+    margin: auto 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
