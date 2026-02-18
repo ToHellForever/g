@@ -76,6 +76,33 @@ document.addEventListener('DOMContentLoaded', function() {
             const subservicesList = accordionItem.querySelector('.subservices-list');
             const subserviceItems = subservicesList.querySelectorAll('.subservice-item');
 
+            // Закрываем все остальные аккордеоны перед открытием текущего
+            accordionButtons.forEach(otherButton => {
+                if (otherButton !== this) {
+                    const otherAccordionItem = otherButton.closest('.custom-accordion-item');
+                    const otherSubservicesList = otherAccordionItem.querySelector('.subservices-list');
+                    const otherArrow = otherButton.querySelector('.custom-arrow');
+                    const otherArrowClone = otherSubservicesList.querySelector('.arrow-clone');
+
+                    // Если другой аккордеон открыт, закрываем его
+                    if (!otherButton.classList.contains('collapsed')) {
+                        otherButton.classList.add('collapsed');
+                        otherArrow.style.transform = 'rotate(0deg)';
+                        otherArrow.style.opacity = '1';
+                        otherArrowClone.style.opacity = '0';
+
+                        // Скрываем элементы подуслуг
+                        const otherSubserviceItems = otherSubservicesList.querySelectorAll('.subservice-item');
+                        otherSubserviceItems.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('fade-out');
+                                item.classList.remove('fade-in');
+                            }, index * 50);
+                        });
+                    }
+                }
+            });
+
             if (isCollapsed) {
                 // При закрытии аккордеона
                 arrow.style.transform = 'rotate(0deg)';
@@ -86,10 +113,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 subserviceItems.forEach((item, index) => {
                     setTimeout(() => {
                         item.classList.add('fade-out');
+                        item.classList.remove('fade-in');
                     }, index * 50);
                 });
             } else {
                 // При открытии аккордеона
+                this.classList.remove('collapsed');
                 arrow.style.opacity = '0';
                 arrowClone.style.opacity = '1';
 
@@ -101,6 +130,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     }, index * 200); // Задержка 200 мс между появлением каждого элемента
                 });
             }
+
+            // Обновляем состояние стрелок для всех аккордеонов
+            accordionButtons.forEach(otherButton => {
+                const otherAccordionItem = otherButton.closest('.custom-accordion-item');
+                const otherSubservicesList = otherAccordionItem.querySelector('.subservices-list');
+                const otherArrow = otherButton.querySelector('.custom-arrow');
+                const otherArrowClone = otherSubservicesList.querySelector('.arrow-clone');
+
+                if (otherButton.classList.contains('collapsed')) {
+                    otherArrow.style.transform = 'rotate(0deg)';
+                    otherArrow.style.opacity = '1';
+                    otherArrowClone.style.opacity = '0';
+                } else {
+                    otherArrow.style.opacity = '0';
+                    otherArrowClone.style.opacity = '1';
+                }
+            });
         });
     });
 
