@@ -3,11 +3,12 @@ from django.urls import path, include
 import debug_toolbar
 from django.conf import settings
 from django.conf.urls.static import static
-from core.views import LandingView
+from core.views import LandingView, submit_application
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", LandingView.as_view(), name="landing"),
+    path('submit-application/', submit_application, name='submit_application'),
 ]
 
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, ProjectPhoto, AboutCarousel, Service, SubService
+from .models import Project, ProjectPhoto, AboutCarousel, Service, SubService, Application
 
 class ProjectPhotoInline(admin.StackedInline):
     model = ProjectPhoto
@@ -33,3 +33,10 @@ class SubServiceAdmin(admin.ModelAdmin):
 
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(SubService, SubServiceAdmin)
+
+@admin.register(Application)
+class ApplicationAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone', 'created_at')
+    list_filter = ('created_at',)
+    search_fields = ('name', 'email', 'phone', 'message')
+    readonly_fields = ('created_at',)
