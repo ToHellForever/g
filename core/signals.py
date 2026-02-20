@@ -21,7 +21,7 @@ def send_telegram_notification(instance):
 💬 **Сообщение:**
 {instance.message}
 
-🔗 **Подробнее:** [Ссылка на заявку](http://bulka-play.ru/s3cr3t_4dm1n_bulk4_pl4y2_p4th/core/application/{instance.id}/change/)
+🔗 **Подробнее:** [Ссылка на заявку](http://127.0.0.1:8000/admin/core/application/{instance.id}/change/)
         """
 
         # Отправляем сообщение в Telegram
