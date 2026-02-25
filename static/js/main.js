@@ -13,6 +13,38 @@ function getCookie(name) {
     return cookieValue;
 }
 
+// Функция для показа модального окна с сообщением об успешной отправке
+function showSuccessModal() {
+    const successModal = document.createElement('div');
+    successModal.className = 'success-modal-overlay';
+    successModal.innerHTML = `
+        <div class="success-modal-content">
+            <span class="success-modal-close">&times;</span>
+            <h2 class="success-modal-title">УСПЕШНО!</h2>
+            <p class="success-modal-message">Ваша заявка отправлена,<br>мы свяжемся с вами в ближайшее время</p>
+        </div>
+    `;
+    
+    document.body.appendChild(successModal);
+    
+    // Показываем модальное окно
+    setTimeout(() => {
+        successModal.style.opacity = '1';
+        successModal.querySelector('.success-modal-content').style.transform = 'scale(1)';
+        successModal.querySelector('.success-modal-content').style.opacity = '1';
+    }, 10);
+    
+    // Закрытие модального окна
+    successModal.querySelector('.success-modal-close').addEventListener('click', function() {
+        successModal.querySelector('.success-modal-content').style.transform = 'scale(0.95)';
+        successModal.querySelector('.success-modal-content').style.opacity = '0';
+        successModal.style.opacity = '0';
+        setTimeout(() => {
+            successModal.remove();
+        }, 300);
+    });
+}
+
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
     // Обработка модального окна
@@ -95,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (data.status === 'success') {
                     this.reset();
                     closeModalWithAnimation();
+                    showSuccessModal();
                 } else {
                     console.error('Ошибка при отправке:', data.message);
                 }
