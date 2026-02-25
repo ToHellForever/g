@@ -71,9 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.textContent = 'Отправка...';
 
             const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
+            const contactMethod = document.querySelector('input[name="contact_method"]:checked').value;
             const message = document.getElementById('message').value;
+            const privacyAgreement = document.getElementById('privacy-policy').checked;
 
             fetch('/submit-application/', {
                 method: 'POST',
@@ -83,24 +84,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify({
                     name: name,
-                    email: email,
                     phone: phone,
-                    message: message
+                    contact_method: contactMethod,
+                    message: message,
+                    privacy_agreement: privacyAgreement
                 })
             })
             .then(response => response.json())
             .then(data => {
                 if (data.status === 'success') {
-                    alert('Заявка успешно отправлена!');
                     this.reset();
                     closeModalWithAnimation();
                 } else {
-                    alert('Ошибка при отправке: ' + data.message);
+                    console.error('Ошибка при отправке:', data.message);
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Произошла ошибка при отправке.');
             })
             .finally(() => {
                 submitButton.disabled = false;

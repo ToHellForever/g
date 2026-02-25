@@ -5,31 +5,40 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Project, AboutCarousel, Service, Application
 import json
 
+
 class LandingView(TemplateView):
     template_name = "landing.html"
+
     def get(self, request):
-        projects = Project.objects.prefetch_related('photos').all()
+        projects = Project.objects.prefetch_related("photos").all()
         carousel_slides = AboutCarousel.objects.all()
-        services = Service.objects.prefetch_related('subservices').all()
-        return render(request, self.template_name, {
-            'projects': projects,
-            'carousel_slides': carousel_slides,
-            'services': services
-        })
+        services = Service.objects.prefetch_related("subservices").all()
+        return render(
+            request,
+            self.template_name,
+            {
+                "projects": projects,
+                "carousel_slides": carousel_slides,
+                "services": services,
+            },
+        )
+
 
 @csrf_exempt
 def submit_application(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         try:
             data = json.loads(request.body)
             application = Application.objects.create(
-                name=data.get('name', ''),
-                email=data.get('email', ''),
-                phone=data.get('phone', ''),
-                message=data.get('message', '')
+                name=data.get("name", ""),
+                phone=data.get("phone", ""),
+                contact_method=data.get("contact_method", "phone"),
+                message=data.get("message", ""),
+                privacy_agreement=data.get("privacy_agreement", False),
             )
-            return JsonResponse({'status': 'success', 'id': application.id})
+            return JsonResponse({"status": "success", "id": application.id})
         except Exception as e:
-            return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
-    return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
-
+            return JsonResponse({"status": "error", "message": str(e)}, status=400)
+    return JsonResponse(
+        {"status": "error", "message": "Invalid request method"}, status=405
+    )

@@ -12,13 +12,22 @@ user_id = settings.TELEGRAM_USER_ID
 def send_telegram_notification(instance):
     try:
         # Формируем сообщение для формы заявки
+        contact_method_mapping = {
+            "telegram": "Telegram",
+            "max": "Max",
+            "call": "Звонок",
+        }
+        contact_method_display = contact_method_mapping.get(
+            instance.contact_method, instance.contact_method
+        )
         tg_markdown_message = f"""
 📩 *Новая заявка!* 📩
 👤 **Имя:** {instance.name}
-📧 **Email:** {instance.email}
 📞 **Телефон:** {instance.phone}
 
-💬 **Сообщение:**
+📱 **Предпочтительный способ связи:** {contact_method_display}
+
+📝 **Описание проекта:**
 {instance.message}
 
 🔗 **Подробнее:** [Ссылка на заявку](http://127.0.0.1:8000/admin/core/application/{instance.id}/change/)
@@ -35,5 +44,3 @@ def notify_telegram_on_application_created(sender, instance, created, **kwargs):
     if created:
         print("Application created, sending notification...")
         send_telegram_notification(instance)
-
-
