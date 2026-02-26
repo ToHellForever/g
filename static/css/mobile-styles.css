@@ -83,6 +83,12 @@
     text-align: center;
 }
 
+/* Десктопная версия */
+@media screen and (min-width: 769px) {
+    .mobile-layout {
+        display: none !important;
+    }
+}
 
 /* Мобильная версия */
 @media screen and (max-width: 768px) {
@@ -90,19 +96,11 @@
         font-size: 5rem !important;
         line-height: 1;
     }
+    
     .g-p {
         font-size: 1rem !important;
     }
-    .mobile-logo {
-        max-width: 100%;
-        height: auto;
-    }
     
-    .mobile-left-column {
-        height: 100%;
-    }
-    /* Мобильная версия для основного контента */
-@media screen and (max-width: 768px) {
     .desktop-layout {
         display: none !important;
     }
@@ -116,21 +114,15 @@
     
     .mobile-left-column {
         padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+        height: 100%;
     }
     
     .mobile-logo-column {
         padding: 0;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-start;
     }
     
     .mobile-buttons-column {
         margin-top: 20px;
-        padding: 0;
     }
     
     .mobile-content {
@@ -153,27 +145,6 @@
     }
     
     .mobile-three-billets {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        margin: 10px 0;
         gap: 10px;
-    }
-    
-    .mobile-three-billets .billet {
-        flex: 1;
-        text-align: center;
-        white-space: nowrap;
-        padding: 5px;
-        box-sizing: border-box;
-    }
-}
-}
-/* Десктопная версия */
-@media screen and (min-width: 769px) {
-    .mobile-layout {
-        display: none !important;
     }
 }
