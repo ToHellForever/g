@@ -16,12 +16,13 @@
     <link rel="stylesheet" href="{% static 'css/projects.css' %}">
     <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
     <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mobile-styles.css' %}">
     <link rel="icon" href="/media/icon/g.png" type="png/x-icon">
     <link rel="x-icon" href="/media/icon/g.png" type="png/x-icon">
   </head>
   <body>
     <div class="container">
-        <div class="row">
+        <div class="row desktop-layout">
             <div class="col-6">
                 <h1>ТОЧКА <span class="g-p">- точка роста вашего бренда</span></h1>
             <div class='three-billets'>
@@ -38,6 +39,30 @@
                         <button class="custom-button">смотреть кейсы</button>
                         <p class="button-text">Digital-студия, которая находит точку роста бренда. Мы создаём сайты, визуал и соцсети, которые не просто выглядят красиво, а попадают точно в цель бизнеса.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Мобильная версия -->
+        <div class="row mobile-layout">
+            <div class="col-8 mobile-left-column">
+                <div class="mobile-content">
+                    <h1 class="mobile-h1">ТОЧКА <span class="g-p">- точка роста вашего бренда</span></h1>
+                    <div class='three-billets mobile-three-billets'>
+                        <div class="billet">сайты</div>
+                        <div class="billet">брендинг</div>
+                        <div class="billet">smm</div>
+                    </div>
+                    <p class="button-text">Digital-студия, которая находит точку роста бренда. Мы создаём сайты, визуал и соцсети, которые не просто выглядят красиво, а попадают точно в цель бизнеса.</p>
+                </div>
+            </div>
+            <div class="col-4 mobile-logo-column">
+                <img src="/media/icon/g.png" alt="" class="big-g mobile-logo">
+            </div>
+            <div class="col-12 mobile-buttons-column">
+                <div class="button-text-container">
+                    <button class="custom-button">оставить заявку</button>
+                    <button class="custom-button">смотреть кейсы</button>
                 </div>
             </div>
         </div>

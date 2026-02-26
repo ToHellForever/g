@@ -1,0 +1,104 @@
+/* Мобильные стили для landing.html */
+
+/* Основной контейнер для мобильной версии */
+.mobile-layout {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* Левая колонка (80% ширины) */
+.mobile-left-column {
+    flex: 0 0 80%;
+    max-width: 80%;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* Колонка для логотипа (20% ширины) */
+.mobile-logo-column {
+    flex: 0 0 20%;
+    max-width: 20%;
+    padding-left: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+/* Логотип */
+.mobile-logo {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Контейнер для кнопок на всю ширину */
+.mobile-buttons-column {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 20px;
+    padding: 0;
+}
+
+/* Три блока в строку */
+.mobile-three-billets {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    gap: 5px;
+    overflow: hidden;
+}
+
+.mobile-three-billets .billet {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 2.44px solid rgba(224, 224, 224, 1);
+    border-radius: 22.25px;
+    font-size: 1rem;
+    color: rgba(224, 224, 224, 1);
+    font-family: 'Gilroy-Light', sans-serif !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Кнопки на всю ширину */
+.mobile-buttons-column .custom-button {
+    width: 100% !important;
+    margin-bottom: 10px;
+}
+
+/* Текст кнопок */
+.mobile-buttons-column .button-text {
+    width: 100%;
+    text-align: center;
+}
+
+
+/* Мобильная версия */
+@media screen and (max-width: 768px) {
+    .mobile-h1 {
+        font-size: 5rem !important;
+        line-height: 1;
+    }
+    .g-p {
+        font-size: 1rem !important;
+    }
+    .mobile-logo {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .mobile-left-column {
+        height: 100%;
+    }
+}

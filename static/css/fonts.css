@@ -42,6 +42,23 @@ h1 {
     font-size: 12.1rem;
     line-height: 0.9;
 }
+
+/* Мобильная версия */
+@media screen and (max-width: 768px) {
+    .mobile-h1 {
+        font-size: 3rem !important;
+        line-height: 1.2;
+    }
+    
+    .mobile-logo {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .mobile-left-column {
+        height: 100%;
+    }
+}
 .g-p {
     font-family: 'Gilroy-Light', sans-serif !important;
     color: rgba(224, 224, 224, 1);
