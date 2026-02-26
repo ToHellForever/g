@@ -37,3 +37,12 @@ body {
 .form-container {
     text-align: center;
 }
+
+
+/* на экаранх меньше 1500 контейнер 100% */
+
+@media screen and (max-width: 1400px) {
+    .container {
+        max-width: 100%;
+    }
+}
