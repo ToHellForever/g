@@ -101,4 +101,79 @@
     .mobile-left-column {
         height: 100%;
     }
+    /* Мобильная версия для основного контента */
+@media screen and (max-width: 768px) {
+    .desktop-layout {
+        display: none !important;
+    }
+    
+    .mobile-layout {
+        display: flex !important;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0 15px;
+    }
+    
+    .mobile-left-column {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    
+    .mobile-logo-column {
+        padding: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+    
+    .mobile-buttons-column {
+        margin-top: 20px;
+        padding: 0;
+    }
+    
+    .mobile-content {
+        width: 100%;
+    }
+    
+    .button-text-container {
+        width: 100%;
+    }
+    
+    .custom-button {
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+    
+    .three-billets {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .mobile-three-billets {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin: 10px 0;
+        gap: 10px;
+    }
+    
+    .mobile-three-billets .billet {
+        flex: 1;
+        text-align: center;
+        white-space: nowrap;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+}
+}
+/* Десктопная версия */
+@media screen and (min-width: 769px) {
+    .mobile-layout {
+        display: none !important;
+    }
 }
