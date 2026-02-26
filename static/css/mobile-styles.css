@@ -147,4 +147,16 @@
     .mobile-three-billets {
         gap: 10px;
     }
+
+
+
+
+    /* стили для ЧЕМ МЫ ЗАНИМАЕМСЯ */
+    .desc-h {
+        font-size: 1.3rem !important;
+        line-height: 1.2;
+    }
+    .desc-p {
+        font-size: 0.8rem !important;
+    }
 }
