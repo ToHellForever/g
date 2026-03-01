@@ -176,6 +176,28 @@
         margin-bottom: 30px;
     }
 
+    /* Убираем анимацию для фотографий проектов в мобильной версии */
+    .project-photo {
+        transition: none !important;
+    }
+
+    /* Сохраняем исходное позиционирование фотографий */
+    .photo-1 {
+        transform: rotate(-5deg) translate(-110px, 20px) !important;
+    }
+    
+    .photo-2 {
+        transform: translate(0, -20px) !important;
+    }
+    
+    .photo-3 {
+        transform: rotate(0deg) translate(100px, 20px) !important;
+    }
+    
+    .photo-4 {
+        transform: translate(0, 100px) !important;
+    }
+
     /* стили для ЧЕМ МЫ ЗАНИМАЕМСЯ */
     .desc-h {
         font-size: 1.3rem !important;
