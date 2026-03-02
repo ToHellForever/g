@@ -24,16 +24,16 @@ function showSuccessModal() {
             <p class="success-modal-message">Ваша заявка отправлена,<br>мы свяжемся с вами в ближайшее время</p>
         </div>
     `;
-    
+
     document.body.appendChild(successModal);
-    
+
     // Показываем модальное окно
     setTimeout(() => {
         successModal.style.opacity = '1';
         successModal.querySelector('.success-modal-content').style.transform = 'scale(1)';
         successModal.querySelector('.success-modal-content').style.opacity = '1';
     }, 10);
-    
+
     // Закрытие модального окна
     successModal.querySelector('.success-modal-close').addEventListener('click', function() {
         successModal.querySelector('.success-modal-content').style.transform = 'scale(0.95)';
@@ -69,6 +69,68 @@ function formatPhoneNumber(phone) {
     }
     
     return cleaned;
+}
+
+// Функция для проверки ограничения на количество заявок
+function checkSubmissionLimit() {
+    const submissionTimes = JSON.parse(localStorage.getItem('submissionTimes') || '[]');
+    const now = new Date().getTime();
+    const fifteenMinutes = 15 * 60 * 1000; // 15 минут в миллисекундах
+
+    // Удаляем записи старше 15 минут
+    const recentSubmissions = submissionTimes.filter(time => now - time < fifteenMinutes);
+
+    // Если больше 2 заявок за последние 15 минут
+    if (recentSubmissions.length >= 2) {
+        return false;
+    }
+
+    // Сохраняем текущее время отправки
+    recentSubmissions.push(now);
+    localStorage.setItem('submissionTimes', JSON.stringify(recentSubmissions));
+    return true;
+}
+
+// Функция для отображения сообщения об ограничении
+function showLimitError() {
+    // Создаем элемент для отображения ошибки
+    let errorElement = document.getElementById('limit-error');
+    if (!errorElement) {
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            errorElement = document.createElement('div');
+            errorElement.id = 'limit-error';
+            errorElement.className = 'error-message';
+            
+            // Вставляем перед кнопкой отправки или в конец формы
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            if (submitButton) {
+                submitButton.parentNode.insertBefore(errorElement, submitButton);
+            } else {
+                contactForm.appendChild(errorElement);
+            }
+        }
+    }
+    
+    if (errorElement) {
+        errorElement.textContent = 'Вы можете отправлять не более 2 заявок каждые 15 минут. Пожалуйста, подождите перед повторной отправкой.';
+        
+        // Добавляем стили для сообщения об ошибке
+        errorElement.style.color = 'red';
+        errorElement.style.fontSize = '14px';
+        errorElement.style.margin = '-15px 0';
+        errorElement.style.padding = '6px';
+        errorElement.style.backgroundColor = 'rgba(255, 0, 0, 0.05)';
+        errorElement.style.borderRadius = '2px';
+        errorElement.style.textAlign = 'center';
+        errorElement.style.opacity = '0';
+        errorElement.style.transition = 'opacity 0.3s ease-in-out';
+        
+        // Анимация появления сообщения
+        setTimeout(() => {
+            errorElement.style.opacity = '1';
+        }, 10);
+    }
 }
 
 // Инициализация при загрузке страницы
@@ -123,6 +185,12 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
 
+            // Проверка ограничения на количество заявок
+            if (!checkSubmissionLimit()) {
+                showLimitError();
+                return;
+            }
+
             // Валидация номера телефона
             const phoneInput = document.getElementById('phone');
             if (!validatePhoneNumber(phoneInput.value)) {
@@ -135,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     phoneInput.parentNode.insertBefore(errorElement, phoneInput.nextSibling);
                 }
                 errorElement.textContent = 'Введите корректный номер телефона в формате: +7 (123) 456-78-90';
-                
+
                 // Добавляем стили для сообщения об ошибке
                 errorElement.style.color = 'red';
                 errorElement.style.fontSize = '12px';
@@ -219,7 +287,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-// Логика для аккордеона
+
+    // Логика для аккордеона
     const accordionButtons = document.querySelectorAll('.custom-accordion-button');
     accordionButtons.forEach(button => {
         const arrowContainer = button.querySelector('.arrow-container');
@@ -403,4 +472,3 @@ document.addEventListener('DOMContentLoaded', function() {
         handleStageBlockAnimation();
     });
 });
-
