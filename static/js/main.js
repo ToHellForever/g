@@ -259,10 +259,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     modifier: 2.5,
                     slideShadows: true,
                 },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
             });
         } else {
             if (swiper) swiper.destroy(true, true);
