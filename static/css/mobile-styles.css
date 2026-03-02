@@ -206,4 +206,37 @@
     .desc-p {
         font-size: 0.8rem !important;
     }
+
+
+
+    /* СТОИМОСТЬ УСЛУГ 1 БЛОК */
+    /* Стили для трёх блоков в столбик и на всю ширину */
+    .row.three-block-rows {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .row.three-block-rows > [class*="col-"] {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .row.three-block-rows img {
+        width: 30px !important;
+        margin-top: 10px !important;
+    }
+
+    .three-block-p {
+        font-size: 1.2rem;
+    }
+    .three-block-price {
+        margin-left: 0px !important;
+        padding: 16px 20px 10px 20px;
+        width: 100% !important;
+    }
 }
