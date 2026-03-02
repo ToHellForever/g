@@ -239,4 +239,35 @@
         padding: 16px 20px 10px 20px;
         width: 100% !important;
     }
+
+
+
+
+
+
+
+    /* ЭТАПЫ РАБОТЫ */
+    .stage-number,
+    .stage-number-2 {
+        font-size: 5rem;
+        margin-top: 25px;
+    }
+    .stage-h,
+    .stage-h-2 {
+        font-size: 1.2rem;
+    }
+    .stage-block,
+    .stage-block-2 {
+        padding-left: 10px;
+        height: auto;
+        padding-right: 10px;
+    }
+    .stage-text,
+    .stage-text-2 {
+        font-size: 0.7rem;
+    }
+    .stage-number,
+    .stage-number-2 {
+        margin-right: 15px !important;
+    }
 }

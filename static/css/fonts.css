@@ -121,8 +121,7 @@ h1 {
     font-size: 3rem;
     font-weight: 400;
 }
-.desc-p,
-.desc-p-stages {
+.desc-p {
     color: rgba(224, 224, 224, 1);
     font-family: 'Gilroy-Light', sans-serif !important;
     font-size: 1.1rem;
@@ -173,10 +172,6 @@ h1 {
 
 
 /* этапы работы */
-.desc-p-stages {
-    line-height: 18px !important;
-}
-
 .stage-number,
 .stage-number-2 {
     font-family: 'Gilroy-Light', sans-serif !important;
