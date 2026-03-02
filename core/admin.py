@@ -21,7 +21,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 class AboutCarouselAdmin(admin.ModelAdmin):
-    list_display = ("image",)
+    list_display = ("image_desktop", "image_mobile")
 
 
 admin.site.register(Project, ProjectAdmin)

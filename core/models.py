@@ -60,9 +60,15 @@ class ProjectPhoto(models.Model):
 
 
 class AboutCarousel(models.Model):
-    image = models.ImageField(
-        upload_to="carousel_images/",
-        help_text="Изображение для слайда",
+    image_desktop = models.ImageField(
+        upload_to="carousel_images/desktop",
+        help_text="Изображение для слайда на десктопе",
+        blank=True,
+        null=True,
+    )
+    image_mobile = models.ImageField(
+        upload_to="carousel_images/mobile",
+        help_text="Изображение для слайда на мобильных устройствах",
         blank=True,
         null=True,
     )

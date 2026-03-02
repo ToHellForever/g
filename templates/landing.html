@@ -24,7 +24,7 @@
     <div class="container">
         <div class="row desktop-layout">
             <div class="col-6">
-                <h1>ТОЧКА <span class="g-p">- точка роста вашего бренда</span></h1>
+                <h1>ТОЧКА<span class="g-p"><br>- точка роста вашего бренда</span></h1>
             <div class='three-billets'>
                 <p class="billet">сайты</p>
                 <p class="billet">брендинг</p>
@@ -47,7 +47,7 @@
         <div class="row mobile-layout">
             <div class="col-8 mobile-left-column">
                 <div class="mobile-content">
-                    <h1 class="mobile-h1">ТОЧКА <span class="g-p">- точка роста вашего бренда</span></h1>
+                    <h1 class="mobile-h1">ТОЧКА<span class="g-p"><br>- точка роста вашего бренда</span></h1>
                     <div class='three-billets mobile-three-billets'>
                         <div class="billet">сайты</div>
                         <div class="billet">брендинг</div>
@@ -146,7 +146,17 @@
         <div class="swiper-wrapper">
             {% for slide in carousel_slides %}
             <div class="swiper-slide">
-                <img src="{{ slide.image.url }}" alt="Slide" class="carousel-image">
+                {% if slide.image_desktop and slide.image_mobile %}
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="{{ slide.image_desktop.url }}">
+                        <source media="(max-width: 767px)" srcset="{{ slide.image_mobile.url }}">
+                        <img src="{{ slide.image_desktop.url }}" alt="Slide" class="carousel-image">
+                    </picture>
+                {% elif slide.image_desktop %}
+                    <img src="{{ slide.image_desktop.url }}" alt="Slide" class="carousel-image">
+                {% elif slide.image_mobile %}
+                    <img src="{{ slide.image_mobile.url }}" alt="Slide" class="carousel-image">
+                {% endif %}
             </div>
             {% endfor %}
         </div>
