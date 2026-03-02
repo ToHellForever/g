@@ -45,6 +45,32 @@ function showSuccessModal() {
     });
 }
 
+// Функция для валидации номера телефона
+function validatePhoneNumber(phone) {
+    // Регулярное выражение для проверки номера телефона
+    // Поддерживает форматы: +7 (123) 456-78-90, +71234567890, 8 (123) 456-78-90, 81234567890
+    const phoneRegex = /^(\+7|8)\s*\(?\d{3}\)?\s*\d{3}[\s-]?\d{2}[\s-]?\d{2}$/;
+    return phoneRegex.test(phone);
+}
+
+// Функция для форматирования номера телефона перед отправкой
+function formatPhoneNumber(phone) {
+    // Удаляем все нецифровые символы
+    let cleaned = phone.replace(/\D/g, '');
+    
+    // Если номер начинается с 8, заменяем на +7
+    if (cleaned.startsWith('8')) {
+        cleaned = '7' + cleaned.slice(1);
+    }
+    
+    // Если номер начинается с 7, добавляем +
+    if (cleaned.startsWith('7')) {
+        cleaned = '+' + cleaned;
+    }
+    
+    return cleaned;
+}
+
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
     // Обработка модального окна
@@ -97,13 +123,65 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
 
+            // Валидация номера телефона
+            const phoneInput = document.getElementById('phone');
+            if (!validatePhoneNumber(phoneInput.value)) {
+                // Создаем элемент для отображения ошибки, если его еще нет
+                let errorElement = document.getElementById('phone-error');
+                if (!errorElement) {
+                    errorElement = document.createElement('div');
+                    errorElement.id = 'phone-error';
+                    errorElement.className = 'error-message';
+                    phoneInput.parentNode.insertBefore(errorElement, phoneInput.nextSibling);
+                }
+                errorElement.textContent = 'Введите корректный номер телефона в формате: +7 (123) 456-78-90';
+                
+                // Добавляем стили для сообщения об ошибке
+                errorElement.style.color = 'red';
+                errorElement.style.fontSize = '12px';
+                errorElement.style.marginTop = '-10px';
+                errorElement.style.opacity = '0';
+                errorElement.style.transition = 'opacity 0.3s ease-in-out, height 0.3s ease-in-out';
+                errorElement.style.height = '0';
+                errorElement.style.overflow = 'hidden';
+
+                // Подсвечиваем поле ввода
+                phoneInput.style.borderColor = 'red';
+                phoneInput.style.transition = 'border-color 0.3s ease';
+
+                // Анимация появления сообщения
+                setTimeout(() => {
+                    errorElement.style.opacity = '1';
+                    errorElement.style.height = 'auto';
+                }, 10);
+
+                // Убираем ошибку через 5 секунд с анимацией
+                setTimeout(() => {
+                    if (errorElement) {
+                        errorElement.style.opacity = '0';
+                        errorElement.style.height = '0';
+                        setTimeout(() => {
+                            if (errorElement) errorElement.remove();
+                            phoneInput.style.borderColor = '';
+                        }, 300);
+                    }
+                }, 5000);
+                
+                return;
+            } else {
+                // Убираем сообщение об ошибке, если оно было
+                const errorElement = document.getElementById('phone-error');
+                if (errorElement) errorElement.remove();
+                phoneInput.style.borderColor = '';
+            }
+
             const submitButton = this.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.textContent;
             submitButton.disabled = true;
             submitButton.textContent = 'Отправка...';
 
             const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
+            const phone = formatPhoneNumber(document.getElementById('phone').value); // Форматируем номер перед отправкой
             const contactMethod = document.querySelector('input[name="contact_method"]:checked').value;
             const message = document.getElementById('message').value;
             const privacyAgreement = document.getElementById('privacy-policy').checked;
