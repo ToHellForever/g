@@ -270,4 +270,15 @@
     .stage-number-2 {
         margin-right: 15px !important;
     }
+
+
+    /* часть с кнопкой заказа */
+    .button-form {
+        font-size: 1.4rem !important;
+        padding: 15px 30px !important;
+    }
+    .start-text {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
 }
