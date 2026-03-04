@@ -18,6 +18,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    height: 100%;
 }
 
 /* Колонка для логотипа (20% ширины) */
@@ -27,13 +28,12 @@
     padding-left: 10px;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-start;
 }
 
 /* Логотип */
 .mobile-logo {
     max-width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 /* Контейнер для кнопок на всю ширину */
@@ -129,9 +129,12 @@
         width: 100%;
     }
     
-    .button-text-container {
-        width: 100%;
+    .button-text {
+        font-size: 0.8rem;
+        text-align: right;
+        margin-right: 15px;
     }
+
     
     .custom-button {
         width: 100% !important;
