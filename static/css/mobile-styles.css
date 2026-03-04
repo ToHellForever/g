@@ -240,9 +240,23 @@
         width: 100% !important;
     }
 
-
-
-
+    /* СТОИМОСТЬ УСЛУГ 2 БЛОК */
+    .service-name {
+        font-size: 1.2rem !important;
+        line-height: 1.1;
+    }
+    .custom-accordion-button {
+        padding: 30px 0px 10px 20px;
+    }
+    .custom-accordion-item .accordion-header {
+        margin-top: -40px;
+        height: 120px;
+    }
+    .custom-arrow {
+        width: 100px;
+        height: auto;
+        margin-right: 0px !important;
+    }
 
 
 
