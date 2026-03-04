@@ -442,10 +442,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Функция для проверки видимости элемента
     function isElementInViewport(el) {
         const rect = el.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
-            rect.bottom >= 0
-        );
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        
+        // Для мобильной версии запускаем анимацию значительно раньше
+        if (window.innerWidth <= 768) {
+            return rect.top <= windowHeight * 1.5 && rect.bottom >= 0;
+        } else {
+            return rect.top <= windowHeight * 0.85 && rect.bottom >= 0;
+        }
     }
 
     // Функция для обработки анимации блоков
