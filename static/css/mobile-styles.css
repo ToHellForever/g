@@ -11,29 +11,29 @@
 
 /* Левая колонка (80% ширины) */
 .mobile-left-column {
-    flex: 0 0 80%;
-    max-width: 80%;
+    flex: 0 0 70%;
     padding-right: 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 100%;
+    height: auto;
 }
 
 /* Колонка для логотипа (20% ширины) */
 .mobile-logo-column {
-    flex: 0 0 20%;
-    max-width: 20%;
+    flex: 0 0 30%;
     padding-left: 10px;
     display: flex;
     justify-content: flex-end;
+    align-items: stretch;
 }
 
 /* Логотип */
-.mobile-logo {
-    max-width: 100%;
+.mobile-logo img {
+    width: auto;
     height: 100%;
+    max-width: none;
 }
 
 /* Контейнер для кнопок на всю ширину */
@@ -93,12 +93,20 @@
 /* Мобильная версия */
 @media screen and (max-width: 768px) {
     .mobile-h1 {
-        font-size: 5rem !important;
-        line-height: 1;
+        width: 100%;
+        font-size: clamp(4.2rem, 16vw, 8rem) !important;
+        line-height: 0.9;
+        overflow-wrap: break-word;
+        word-break: break-all;
+        text-align: right;
+        padding-right: 15px !important;
     }
     
     .g-p {
-        font-size: 1rem !important;
+        font-size: clamp(0.95rem, 3.5vw, 8rem) !important;
+        width: 100%;
+        overflow-wrap: break-word;
+        word-break: break-all;
     }
     
     .desktop-layout {
@@ -109,7 +117,6 @@
         display: flex !important;
         flex-wrap: wrap;
         margin: 0;
-        padding: 0 15px;
     }
     
     .mobile-left-column {
@@ -127,10 +134,11 @@
     
     .mobile-content {
         width: 100%;
+        overflow: hidden;
     }
     
     .button-text {
-        font-size: 0.8rem;
+        font-size: clamp(0.68rem, 2vw, 8rem) !important;
         text-align: right;
         margin-right: 15px;
     }
@@ -138,7 +146,7 @@
     
     .custom-button {
         width: 100% !important;
-        margin-bottom: 10px;
+        margin-bottom: 0px !important;
     }
     
     .three-billets {
