@@ -52,23 +52,24 @@
     align-items: center;
     width: 100%;
     margin: 10px 0;
-    gap: 5px;
     overflow: hidden;
 }
-
+.three-billets {
+    gap: 0px;
+}
 .mobile-three-billets .billet {
     flex: 1;
+    width: 100%;
     text-align: center;
     white-space: nowrap;
-    padding: 5px;
+    padding: 1px 7px 1px 7px;
     box-sizing: border-box;
-    border: 2.44px solid rgba(224, 224, 224, 1);
+    border: 1px solid rgba(224, 224, 224, 1);
     border-radius: 22.25px;
     font-size: 1rem;
     color: rgba(224, 224, 224, 1);
     font-family: 'Gilroy-Light', sans-serif !important;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin-left: 0px;
 }
 
 /* Кнопки на всю ширину */
@@ -153,10 +154,6 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-    }
-    
-    .mobile-three-billets {
-        gap: 10px;
     }
 
     /* Стили для папок: 2 в строку, 1 под ними */
