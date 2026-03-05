@@ -198,6 +198,9 @@
         transition: none !important;
         width: 150px;
     }
+    .project-col { 
+        margin-top: 0px !important;
+    }
     /* кроме первого элемента */
     .project-col:not(:first-child) {
         margin-top: 60px !important;

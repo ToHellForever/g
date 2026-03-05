@@ -31,7 +31,9 @@
     justify-content: center;
     align-items: center;
 }
-
+.project-col {
+    margin-top: 40px;
+}
 /* Стили для фотографий проекта */
 .project-photo {
     position: absolute;
