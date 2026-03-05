@@ -10,7 +10,7 @@ body {
     position: fixed;
     bottom: 0px;
     right: 0px;
-    width: 10%;
+    width: 10rem;
     height: auto;
     border-radius: 50%;
     background-color: transparent;
@@ -44,5 +44,8 @@ body {
 @media screen and (max-width: 1400px) {
     .container {
         max-width: 100%;
+    }
+    .floating-form-button {
+        width: 7rem;
     }
 }
