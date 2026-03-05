@@ -83,6 +83,15 @@
     width: 100%;
     text-align: center;
 }
+@media screen and (max-width: 1050px) {
+    .project-col {
+        width: 100% !important;
+        margin-top: 50px !important;
+    }
+    .project-col:not(:first-child) {
+        margin-top: 120px !important;
+    }
+}
 
 /* Десктопная версия */
 @media screen and (min-width: 769px) {
@@ -190,8 +199,8 @@
         width: 150px;
     }
     /* кроме первого элемента */
-    .project-card {
-        margin-top: 60px;
+    .project-col:not(:first-child) {
+        margin-top: 60px !important;
     }
     .project-name {
         margin-top: 50px;
