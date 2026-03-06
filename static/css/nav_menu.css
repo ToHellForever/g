@@ -67,3 +67,14 @@
 .footer-container {
     margin-top: 100px !important;
 }
+
+
+@media (max-width: 768px) {
+    .menu-text::after {
+        display: none;
+    }
+    .icon:hover {
+        transition: none;
+        transform: none;
+}
+}

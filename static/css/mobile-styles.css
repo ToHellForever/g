@@ -158,13 +158,17 @@
         width: 100% !important;
         margin-bottom: 0px !important;
     }
-    
+    .custom-button:hover {
+        transform: none;
+    }
     .three-billets {
         display: flex;
         justify-content: space-between;
         width: 100%;
     }
-
+    .billet {
+        margin: 0 10px;
+    }
     /* Стили для папок: 2 в строку, 1 под ними */
     .folders-container {
         display: flex;
