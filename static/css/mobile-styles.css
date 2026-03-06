@@ -335,7 +335,9 @@
     }
     .stage-h,
     .stage-h-2 {
-        font-size: 1.2rem;
+        font-size: 1.12rem;
+        line-height: 1.1;
+        margin-bottom: 5px;
     }
     .stage-block,
     .stage-block-2 {
@@ -351,7 +353,9 @@
     .stage-number-2 {
         margin-right: 15px !important;
     }
-
+    .stage-content {
+        padding-right: 0px;
+    }
 
     /* часть с кнопкой заказа */
     .button-form {
