@@ -184,10 +184,13 @@
         max-width: calc(50% - 5px);
         margin-bottom: -25px;
         height: auto;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 1 / 0.9;
     }
 
     /* Стили для проектов: по одному в столбик */
+    .projects-container {
+        margin-top: 0px;
+    }
     .projects-row {
         flex-direction: column;
     }
