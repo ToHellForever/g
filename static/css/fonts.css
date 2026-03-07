@@ -83,8 +83,9 @@ h1 {
     border: none;
     border-radius: 22.25px;
     cursor: pointer;
-    font-size: 1.6rem;
+    font-size: clamp(1rem, 2vw, 1.6rem) !important;
     font-family: 'Gilroy-Light', sans-serif !important;
+    white-space: nowrap;
 }
 .custom-button:nth-child(2) {
     background: rgba(225, 225, 225, 1);
@@ -108,11 +109,10 @@ h1 {
     margin: 0;
     font-family: 'Gilroy-Light', sans-serif !important;
     color: rgba(255, 255, 255, 1);
-    font-size: 1.07rem;
+    font-size: clamp(0.8rem, 1vw, 1.07rem) !important;
     font-weight: 400;
     line-height: 1.2;
 }
-
 
 .desc-h {
     color: rgba(224, 224, 224, 1);
