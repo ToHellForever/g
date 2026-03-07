@@ -33,6 +33,11 @@ body {
     object-fit: contain;
 }
 
+.big-g {
+    max-width: 60%;
+    margin-left: -10px;
+}
+
 
 .form-container {
     text-align: center;

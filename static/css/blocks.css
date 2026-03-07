@@ -27,8 +27,13 @@
     align-items: flex-start;
     gap: 10px;
     margin-bottom: 30px;
+    margin-left: -15px !important;
 }
-
+@media (max-width: 1000px) {
+    .button-text-container  {
+        margin-bottom: 10px !important;
+    }
+}
 .row.three-block-rows {
     display: flex;
     width: 100%;

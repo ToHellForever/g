@@ -29,13 +29,6 @@
     align-items: stretch;
 }
 
-/* Логотип */
-.mobile-logo img {
-    width: auto;
-    height: 100%;
-    max-width: none;
-}
-
 /* Контейнер для кнопок на всю ширину */
 .mobile-buttons-column {
     flex: 0 0 100%;
