@@ -275,6 +275,7 @@
     
     .footer-container .menu-items a {
         white-space: nowrap;
+        font-size: clamp(0.9rem, 3vw, 1.2rem) !important;
     }
     
     .footer-container .logo,
