@@ -135,6 +135,25 @@ function showLimitError() {
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
+    // Burger menu functionality
+    const burger = document.querySelector('.menu-burger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (burger && mobileMenu) {
+        burger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on any menu item
+        const mobileMenuItems = mobileMenu.querySelectorAll('a');
+        mobileMenuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                burger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+    }
     // Обработка модального окна
     const floatingFormButtons = document.querySelectorAll('#floatingFormButton, .custom-button');
     const modalOverlay = document.getElementById('formModalOverlay');
