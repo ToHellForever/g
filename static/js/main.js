@@ -76,15 +76,15 @@ function checkSubmissionLimit() {
     const submissionTimes = JSON.parse(localStorage.getItem('submissionTimes') || '[]');
     const now = new Date().getTime();
     const fifteenMinutes = 15 * 60 * 1000; // 15 минут в миллисекундах
-
+    
     // Удаляем записи старше 15 минут
     const recentSubmissions = submissionTimes.filter(time => now - time < fifteenMinutes);
-
+    
     // Если больше 2 заявок за последние 15 минут
     if (recentSubmissions.length >= 2) {
         return false;
     }
-
+    
     // Сохраняем текущее время отправки
     recentSubmissions.push(now);
     localStorage.setItem('submissionTimes', JSON.stringify(recentSubmissions));
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalOverlay = document.getElementById('formModalOverlay');
     const modalClose = document.getElementById('modalClose');
     const contactForm = document.getElementById('contactForm');
-
+    
     if (floatingFormButtons.length > 0 && modalOverlay && modalClose && contactForm) {
         floatingFormButtons.forEach(button => {
             button.addEventListener('click', function() {
@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const arrowContainer = button.querySelector('.arrow-container');
         const arrow = button.querySelector('.custom-arrow');
         const subservicesList = button.closest('.custom-accordion-item').querySelector('.subservices-list');
-
+        
         // Добавляем клон стрелки в список подуслуг для плавного появления
         const arrowClone = arrow.cloneNode(true);
         arrowClone.classList.add('arrow-clone');
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
         arrowClone.style.margin = '10px 0 0 auto';
         arrowClone.style.transform = 'rotate(270deg)';
         subservicesList.appendChild(arrowClone);
-
+        
         button.addEventListener('click', function() {
             const accordionItem = this.closest('.custom-accordion-item');
             const isCollapsed = this.classList.contains('collapsed');
@@ -318,14 +318,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     const otherSubservicesList = otherAccordionItem.querySelector('.subservices-list');
                     const otherArrow = otherButton.querySelector('.custom-arrow');
                     const otherArrowClone = otherSubservicesList.querySelector('.arrow-clone');
-
+                    
                     // Если другой аккордеон открыт, закрываем его
                     if (!otherButton.classList.contains('collapsed')) {
                         otherButton.classList.add('collapsed');
                         otherArrow.style.transform = 'rotate(0deg)';
                         otherArrow.style.opacity = '1';
                         otherArrowClone.style.opacity = '0';
-
+                        
                         // Скрываем элементы подуслуг
                         const otherSubserviceItems = otherSubservicesList.querySelectorAll('.subservice-item');
                         otherSubserviceItems.forEach((item, index) => {
@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 arrow.style.transform = 'rotate(0deg)';
                 arrow.style.opacity = '1';
                 arrowClone.style.opacity = '0';
-
+                
                 // Добавляем класс fade-out для анимации исчезновения
                 subserviceItems.forEach((item, index) => {
                     setTimeout(() => {
@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.classList.remove('collapsed');
                 arrow.style.opacity = '0';
                 arrowClone.style.opacity = '1';
-
+                
                 // Убираем класс fade-out и добавляем класс fade-in с задержкой для эффекта появления по одной
                 subserviceItems.forEach((item, index) => {
                     setTimeout(() => {
@@ -365,14 +365,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     }, index * 200); // Задержка 200 мс между появлением каждого элемента
                 });
             }
-
+            
             // Обновляем состояние стрелок для всех аккордеонов
             accordionButtons.forEach(otherButton => {
                 const otherAccordionItem = otherButton.closest('.custom-accordion-item');
                 const otherSubservicesList = otherAccordionItem.querySelector('.subservices-list');
                 const otherArrow = otherButton.querySelector('.custom-arrow');
                 const otherArrowClone = otherSubservicesList.querySelector('.arrow-clone');
-
+                
                 if (otherButton.classList.contains('collapsed')) {
                     otherArrow.style.transform = 'rotate(0deg)';
                     otherArrow.style.opacity = '1';
@@ -407,6 +407,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     slideShadows: true,
                 },
             });
+        } else if (window.innerWidth <= 1400) {
+            if (swiper) swiper.destroy(true, true);
+
+            swiper = new Swiper('.about-carousel', {
+                loop: false,
+                slidesPerView: 2.5,
+                spaceBetween: 20,
+                freeMode: true,
+                grabCursor: true,
+                speed: 500,
+            });
         } else {
             if (swiper) swiper.destroy(true, true);
 
@@ -418,18 +429,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 grabCursor: true,
                 speed: 500,
             });
+        }
 
+        // Добавляем прокрутку колесиком мыши для десктопной версии
+        if (window.innerWidth > 767.98) {
             const carouselContainer = document.querySelector('.about-carousel-container');
-            carouselContainer.addEventListener('wheel', function(e) {
-                if (swiper.isBeginning && e.deltaY < 0) {
-                    return;
-                }
-                if (swiper.isEnd && e.deltaY > 0) {
-                    return;
-                }
-                e.preventDefault();
-                swiper.slideTo(swiper.activeIndex + (e.deltaY > 0 ? 1 : -1));
-            });
+            if (carouselContainer) {
+                carouselContainer.addEventListener('wheel', function(e) {
+                    if (swiper.isBeginning && e.deltaY < 0) {
+                        return;
+                    }
+                    if (swiper.isEnd && e.deltaY > 0) {
+                        return;
+                    }
+                    e.preventDefault();
+                    swiper.slideTo(swiper.activeIndex + (e.deltaY > 0 ? 1 : -1));
+                });
+            }
         }
     }
 
