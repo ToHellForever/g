@@ -255,6 +255,8 @@
     /* Стили для футера */
     .footer-container {
         padding: 10px 0;
+        position: relative;
+        z-index: 101;
     }
     
     .footer-container .nav-links {

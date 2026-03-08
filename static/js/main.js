@@ -1,3 +1,4 @@
+// Твой оригинальный код остается здесь
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -520,3 +521,35 @@ document.addEventListener('DOMContentLoaded', function() {
         handleStageBlockAnimation();
     });
 });
+
+// Добавленная логика для кнопки и футера
+function checkButtonFooterOverlap() {
+    const button = document.querySelector('.floating-form-button');
+    const footer = document.querySelector('.footer-container');
+    
+    if (!button || !footer) return;
+    
+    // Получаем координаты элементов
+    const buttonRect = button.getBoundingClientRect();
+    const footerRect = footer.getBoundingClientRect();
+    
+    // Проверяем пересечение
+    const isOverlapping = (
+        buttonRect.bottom > footerRect.top &&
+        buttonRect.top < footerRect.bottom
+    );
+    
+    // Показываем или скрываем кнопку в зависимости от пересечения
+    if (isOverlapping) {
+        button.style.opacity = '0';
+        button.style.pointerEvents = 'none';
+    } else {
+        button.style.opacity = '1';
+        button.style.pointerEvents = 'auto';
+    }
+}
+
+// Запускаем проверку при загрузке страницы и при скролле
+window.addEventListener('load', checkButtonFooterOverlap);
+window.addEventListener('scroll', checkButtonFooterOverlap);
+window.addEventListener('resize', checkButtonFooterOverlap);
