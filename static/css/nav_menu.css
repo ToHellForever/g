@@ -8,7 +8,7 @@
 
 .menu-items {
     display: flex;
-    gap: 3rem;
+    gap: 2.5rem;
     align-items: center;
 }
 
@@ -16,6 +16,8 @@
     text-decoration: none;
     color: rgba(255, 255, 255, 1);
     font-family: 'Gilroy-Light', sans-serif;
+    white-space: nowrap;
+    font-size: clamp(0.7rem, 5vw, 1rem) !important;
     transition: all 0.3s ease;
     position: relative;
 }
@@ -43,12 +45,13 @@
     margin-right: 30px !important;
 }
 .menu-items a:nth-child(6) {
-    margin-right: -40px !important;
+    margin-right: -30px !important;
     margin-top: 3px;
 }
 .logo {
     width: 30px;
     height: auto;
+    margin-right: 20px;
 }
 
 .hr {
@@ -76,5 +79,8 @@
     .icon:hover {
         transition: none;
         transform: none;
-}
+    }
+    .footer-container {
+        margin-top: 30px !important;
+    }
 }

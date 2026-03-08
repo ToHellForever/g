@@ -136,15 +136,24 @@ function showLimitError() {
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
     // Обработка модального окна
-    const floatingFormButtons = document.querySelectorAll('#floatingFormButton');
+    const floatingFormButtons = document.querySelectorAll('#floatingFormButton, .custom-button');
     const modalOverlay = document.getElementById('formModalOverlay');
     const modalClose = document.getElementById('modalClose');
     const contactForm = document.getElementById('contactForm');
     
     if (floatingFormButtons.length > 0 && modalOverlay && modalClose && contactForm) {
         floatingFormButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Показываем оверлей
+            button.addEventListener('click', function(e) {
+                // Проверяем, является ли кнопка "смотреть кейсы"
+                if (this.textContent.trim() === "смотреть кейсы") {
+                    e.preventDefault();
+                    const projectsSection = document.getElementById('projects');
+                    if (projectsSection) {
+                        projectsSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    return;
+                }
+                // Для кнопки "оставить заявку" показываем модальное окно
                 modalOverlay.style.display = 'flex';
                 // Добавляем класс для анимации через небольшую задержку
                 // Это позволяет браузеру сначала применить display: flex
