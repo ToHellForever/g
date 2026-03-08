@@ -54,3 +54,13 @@ body {
         width: 7rem;
     }
 }
+@media screen and (max-width: 768px) {
+    .menu-text.mobile-only {
+        display: inline;
+    }
+}
+@media screen and (min-width: 769px) {
+    .menu-text.mobile-only {
+        display: none;
+    }
+}

@@ -262,7 +262,7 @@ input[type="radio"]:checked::after,
     }
     .modal-form button {
         font-size: clamp(1rem, 4vw, 1.5rem);
-        margin-top: 0px;
+        margin-top: 10px;
     }
     .modal-p {
         font-size: clamp(1rem, 3vw, 1.2rem);

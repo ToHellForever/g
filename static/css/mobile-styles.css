@@ -252,6 +252,46 @@
         font-size: 0.8rem !important;
     }
 
+    /* Стили для футера */
+    .footer-container {
+        padding: 10px 0;
+    }
+    
+    .footer-container .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .footer-container .menu-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .footer-container .menu-items a {
+        white-space: nowrap;
+    }
+    
+    .footer-container .logo,
+    .footer-container .icon {
+        display: none;
+    }
+    
+    .menu-text.mobile-only {
+        display: none;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .menu-text.mobile-only {
+            display: inline;
+        }
+    }
+
 
 
     /* СТОИМОСТЬ УСЛУГ 1 БЛОК */
