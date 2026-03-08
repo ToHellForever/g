@@ -36,7 +36,7 @@
     margin-top: 20px;
     padding-right: 0px;
 }
-.
+
 /* Три блока в строку */
 .mobile-three-billets {
     display: flex;
@@ -52,7 +52,7 @@
 }
 .mobile-three-billets .billet {
     flex: 1;
-    width: 100%;
+    margin-top: 5px;
     text-align: center;
     white-space: nowrap;
     padding: 1px 7px 1px 7px;
@@ -97,7 +97,7 @@
 @media screen and (max-width: 768px) {
     .mobile-h1 {
         width: 100%;
-        font-size: clamp(4.2rem, 16vw, 8rem) !important;
+        font-size: clamp(4.4rem, 18vw, 10rem) !important;
         line-height: 0.9;
         overflow-wrap: break-word;
         word-break: break-all;
@@ -106,7 +106,7 @@
     }
     
     .g-p {
-        font-size: clamp(0.95rem, 3.5vw, 8rem) !important;
+        font-size: clamp(0.95rem, 4vw, 8rem) !important;
         width: 100%;
         overflow-wrap: break-word;
         word-break: break-all;
