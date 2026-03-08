@@ -276,4 +276,14 @@ input[type="radio"]:checked::after,
         flex: 1;
         max-width: calc(33.333% - 10px);
     }
+    /* Увеличенные и закругленные радио-кнопки в contact-method */
+    .contact-method input[type="radio"] {
+        transform: scale(1);
+        border-radius: 20px !important;
+    }
+    .contact-method input[type="radio"]:checked::after {
+        width: 10px;
+        height: 10px;
+        border-radius: 15px !important;
+    }
 }
