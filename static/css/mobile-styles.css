@@ -68,6 +68,8 @@
 /* Кнопки на всю ширину */
 .mobile-buttons-column .custom-button {
     width: 100% !important;
+    font-size: clamp(1.2rem, 5vw, 1.5rem) !important;
+    padding: 5px 0px 5px 0px !important;
     margin-bottom: 10px;
 }
 
@@ -340,7 +342,8 @@
     }
     .stage-text,
     .stage-text-2 {
-        font-size: 0.7rem;
+        font-size: clamp(0.7rem, 2vw, 1.2rem);
+        line-height: 1.2;
     }
     .stage-number,
     .stage-number-2 {
