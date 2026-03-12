@@ -1,13 +1,32 @@
 {% load static %}
 {% include 'nav_menu.html' %}
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Создание сайтов, брендинг, графический дизайн и SMM. Помогаем бизнесу выглядеть профессионально и привлекать клиентов через сильный визуал.">
-    <meta name="keywords" content="создание сайтов, брендинг, графический дизайн, SMM, веб-дизайн, продвижение бизнеса, визуальная идентичность, маркетинг, дизайн-студия">
-    <title>Точка g</title>
+    
+    <!-- Базовые SEO-теги -->
+    <meta name="description" content="Создание сайтов, брендинг, графический дизайн и SMM от студии Точка G. Помогаем бизнесу выглядеть профессионально и привлекать клиентов через сильный визуал и стратегический подход.">
+    <meta name="keywords" content="создание сайтов, брендинг, графический дизайн, SMM, веб-дизайн, продвижение бизнеса, визуальная идентичность, маркетинг, дизайн-студия, разработка сайтов, фирменный стиль, логотип, digital-агенство">
+    
+    <!-- SEO: Open Graph (для соцсетей) -->
+    <meta property="og:title" content="Точка G — Digital-студия для роста вашего бренда">
+    <meta property="og:description" content="Создаём сайты, визуал и соцсети, которые помогают бизнесу выглядеть профессионально и привлекать клиентов. Индивидуальный подход и стратегическое решение задач.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tochka-g.ru">
+    <meta property="og:image" content="https://tochka-g.ru/media/icon/g.png">
+    
+    <!-- SEO: Canonical URL (защита от дублей) -->
+    <link rel="canonical" href="https://dot-g.ru" />
+    
+    <!-- SEO: Прелоадер для ускорения восприятия загрузки -->
+    <link rel="preload" href="{% static 'css/main.css' %}" as="style">
+    <link rel="preload" href="{% static 'fonts/PlayfairDisplay.ttf' %}" as="font" type="font/ttf" crossorigin>
+    
+    <title>Точка G — Создание сайтов, брендинг и SMM для бизнеса</title>
+    
+    <!-- Подключение CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
@@ -19,8 +38,33 @@
     <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
     <link rel="stylesheet" href="{% static 'css/modal.css' %}">
     <link rel="stylesheet" href="{% static 'css/mobile-styles.css' %}">
-    <link rel="icon" href="/media/icon/main-icon.png" type="png/x-icon">
-    <link rel="x-icon" href="/media/icon/main-icon.png" type="png/x-icon">
+    
+    <!-- SEO: Структурированные данные (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebDesign",
+      "name": "Точка G — Digital-студия",
+      "description": "Создание сайтов, брендинг, графический дизайн и SMM для бизнеса. Помогаем брендам выглядеть профессионально и привлекать клиентов.",
+      "url": "https://tochka-g.ru",
+      "logo": "https://tochka-g.ru/media/icon/g.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Команда Точка G"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Россия"
+      },
+      "serviceType": [
+        "Создание сайтов",
+        "Брендинг",
+        "Графический дизайн",
+        "SMM",
+        "Веб-дизайн"
+      ]
+    }
+    </script>
   </head>
   <body>
     <div class="container">
@@ -35,7 +79,7 @@
             </div>
             <div class="col-6 image-container">
                 <div class="image-and-buttons">
-                    <img src="/media/icon/g.png" alt="" class="big-g">
+                    <img src="/media/icon/g.png" alt="Логотип студии Точка G" class="big-g">
                     <div class="button-text-container">
                         <button class="custom-button">оставить заявку</button>
                         <button class="custom-button">смотреть кейсы</button>
@@ -44,7 +88,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Мобильная версия -->
         <div class="row mobile-layout">
             <div class="col-8 mobile-left-column">
@@ -59,7 +103,7 @@
                 </div>
             </div>
             <div class="col-4 mobile-logo-column">
-                <img src="/media/icon/g.png" alt="" class="big-g mobile-logo">
+                <img src="/media/icon/g.png" alt="Логотип студии Точка G" class="big-g mobile-logo">
             </div>
             <div class="col-12 mobile-buttons-column">
                 <div class="button-text-container">
@@ -69,6 +113,7 @@
             </div>
         </div>
     </div>
+
 <div class="container mt-4">
     <hr class="hr">
         <h2 class="desc-h">ЧЕМ МЫ ЗАНИМАЕМСЯ</h2>
@@ -114,15 +159,15 @@
             {% for project in projects %}
             <div class="col-12 col-md-6 project-col">
                 <div class="project-card">
-                    <a href="{{ project.link }}" target="_blank" class="project-link">
+                    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="project-link">
                         <div class="project-photos">
                             {% for photo in project.photos.all %}
-                            <img src="{{ photo.image.url }}" alt="Project photo" class="project-photo photo-{{ photo.order }}">
+                            <img src="{{ photo.image.url }}" alt="Пример проекта {{ project.name }}: {{ forloop.counter }}" class="project-photo photo-{{ photo.order }}" loading="lazy">
                             {% endfor %}
                         </div>
                     </a>
                     <h3 class="project-name">{{ project.name }}</h3>
-                    <a href="{{ project.link }}" target="_blank" class="project-button-link">
+                    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="project-button-link">
                         <button class="project-button">посмотреть</button>
                     </a>
                 </div>
@@ -135,6 +180,7 @@
         </div>
     </div>
 </div>
+
 <div class="container after-project mt-5">
     <hr class="hr">
     <h2 class="desc-h" id="about-company">О КОМПАНИИ</h2>
@@ -142,9 +188,8 @@
     <p class="desc-p">Точка G — digital-студия, которая находит точку роста бренда. Мы создаём сайты, визуал и соцсети, которые помогают бизнесу выглядеть профессионально, быть узнаваемым и расти. Мы работаем не просто с дизайном, а с задачами бизнеса: понимаем цель, аудиторию и только после этого создаём визуальные решения.</p>
 </div>
 
-
 <div class="about-carousel-container">
-    <div class="swiper about-carousel">
+        <div class="swiper about-carousel">
         <div class="swiper-wrapper">
             {% for slide in carousel_slides %}
             <div class="swiper-slide">
@@ -169,7 +214,7 @@
     <hr class="hr">
     <h2 class="desc-h" id="price">СТОИМОСТЬ УСЛУГ</h2>
     <hr class="hr">
-    <p class="desc-p">Каждый проект индивидуален, поэтому окончательная стоимость рассчитывается после обсуждения всех деталей: целей сайта, функционала, объёма работ и сроков.
+        <p class="desc-p">Каждый проект индивидуален, поэтому окончательная стоимость рассчитывается после обсуждения всех деталей: целей сайта, функционала, объёма работ и сроков.
 Цены, указанные в прайсе, являются ориентировочными и помогают понять порядок бюджета. Итоговая стоимость может отличаться как в меньшую, так и в большую сторону — всё зависит от ваших задач.
 Оставьте заявку и расскажите, какой проект вы хотите получить. Мы проконсультируем вас, предложим оптимальное решение и подскажем, как реализовать проект максимально эффективно.</p>
     <div class='row three-block-rows'>
@@ -316,7 +361,18 @@
 </form>
         </div>
     </div>
-{% include 'footer.html' %}
+</div>
+    <!-- SEO: Скрытые заголовки для улучшения индексации -->
+    <div style="display: none;">
+        <h1>Точка G — Digital-студия в Красноярске: создание сайтов, брендинг, SMM</h1>
+        <h2>Профессиональное создание сайтов под ключ</h2>
+        <h2>Разработка фирменного стиля и логотипов</h2>
+        <h2>Ведение социальных сетей и таргетированная реклама</h2>
+        <h3>Продвижение бизнеса через визуальные решения</h3>
+        <p>Точка G — ваш надёжный партнёр в развитии бренда. Мы предлагаем комплексные решения: от создания сайтов до разработки фирменного стиля и ведения социальных сетей. Наша команда профессионалов поможет вашему бизнесу выделиться и привлечь новых клиентов.</p>
+    </div>
+
+    {% include 'footer.html' %}
     <script src="{% static 'js/main.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
