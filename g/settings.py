@@ -27,7 +27,21 @@ TELEGRAM_USER_ID = os.getenv("TELEGRAM_USER_ID")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '5.129.207.82',
+    'dot-g.ru'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost',
+    'http://127.0.0.1',
+    'http://5.129.207.82',
+    'https://5.129.207.82',
+    'http://dot-g.ru',
+    'https://dot-g.ru'
+]
 
 
 # Application definition
