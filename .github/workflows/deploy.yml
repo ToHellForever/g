@@ -29,6 +29,10 @@ jobs:
           script: |
             cd /home/v/g
 
+            source venv/bin/activate
+
+            poetry install --no-root
+
             echo "${{ secrets.PASSWORD }}" | sudo -S systemctl stop g
 
             echo "${{ secrets.PASSWORD }}" | git pull
