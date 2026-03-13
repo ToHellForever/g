@@ -1,0 +1,45 @@
+# Название нашего workflow для отображения в интерфейсе GitHub
+name: Deploy to VPS
+
+# Указываем когда запускать - при push в main ветку
+on:
+  push:
+    branches: [main]
+
+# Определяем задачи для выполнения
+jobs:
+  deploy:
+    # Указываем на какой ОС запускать
+    runs-on: ubuntu-latest
+
+    steps:
+      # Получаем код из репозитория
+      - uses: actions/checkout@v3
+
+      # Деплоим на сервер через SSH
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          # Используем секреты из GitHub для подключения
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+
+          # Команды выполняемые на сервере
+          script: |
+            cd /home/v/g
+
+            echo "${{ secrets.PASSWORD }}" | sudo -S systemctl stop g
+
+            echo "${{ secrets.PASSWORD }}" | git pull
+
+            source venv/bin/activate
+
+            pip install -r requirements.txt
+
+
+            /home/v/.local/bin/poetry install --no-root
+
+            echo "${{ secrets.ENV_FILE }}" > .env
+
+            echo "${{ secrets.PASSWORD }}" | sudo -S systemctl start g
