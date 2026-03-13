@@ -43,6 +43,10 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        verbose_name = "Проект"
+        verbose_name_plural = "Проекты"
 
 
 class ProjectPhoto(models.Model):
@@ -57,6 +61,8 @@ class ProjectPhoto(models.Model):
 
     class Meta:
         ordering = ["order"]
+        verbose_name = "Фотография проекта"
+        verbose_name_plural = "Фотографии проектов"
 
 
 class AboutCarousel(models.Model):
