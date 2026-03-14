@@ -9,12 +9,12 @@ from django.contrib.sitemaps.views import sitemap
 from core.sitemaps import PostSitemap, StaticViewSitemap
 
 sitemaps = {
-    'posts': PostSitemap,
-    'static': StaticViewSitemap,
+    "posts": PostSitemap,
+    "static": StaticViewSitemap,
 }
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("secure-control-panel-9374/", admin.site.urls),
     path("", LandingView.as_view(), name="landing"),
     path(
         "privacy-policy/",
@@ -22,7 +22,12 @@ urlpatterns = [
         name="privacy_policy",
     ),
     path("submit-application/", submit_application, name="submit_application"),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
 ]
 
 
