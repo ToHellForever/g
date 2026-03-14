@@ -1,0 +1,103 @@
+/* Стили для контейнера проектов */
+.projects-container {
+    margin-top: 50px;
+}
+
+/* Стили для строки проектов */
+.projects-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Стили для карточки проекта */
+.project-card {
+    flex: 0 0 48%;
+    position: relative;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стили для контейнера фотографий проекта */
+.project-photos {
+    position: relative;
+    width: auto;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.project-col {
+    margin-top: 40px;
+}
+/* Стили для фотографий проекта */
+.project-photo {
+    position: absolute;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    transition: all 0.5s ease;
+}
+
+/* Позиционирование фотографий по order */
+.photo-1 {
+    transform: rotate(-5deg) translate(-110px, 20px);
+    z-index: 1;
+}
+
+.photo-2 {
+    transform: translate(0, -20px);
+    z-index: 2;
+}
+
+.photo-3 {
+    transform: rotate(0deg) translate(100px, 20px);
+    z-index: 3;
+}
+
+.photo-4 {
+    transform: translate(0, 100px);
+    z-index: 4;
+}
+
+/* Эффект при наведении */
+.project-card:hover .photo-1 {
+    transform: rotate(-5deg) translate(-120px, 0px);
+}
+
+.project-card:hover .photo-2 {
+    transform: translate(0, -40px);
+}
+
+.project-card:hover .photo-3 {
+    transform: rotate(0deg) translate(130px, 0px);
+}
+
+.project-card:hover .photo-4 {
+    transform: translate(0, 100px);
+}
+
+/* Стили для кнопки "Подробнее" */
+.project-button {
+    padding: 1px 60px 4px 60px;
+    background-color: rgba(204, 236, 65, 1);
+    color: rgba(31, 31, 31, 1);
+    border: none;
+    border-radius: 22.25px;
+    cursor: pointer;
+    font-family: 'Gilroy-Light', sans-serif !important;
+    font-size: 1.5rem;
+    font-weight: 400
+}
+
+.project-button:hover {
+    transition: all 0.5s ease;
+    background-color: rgb(152, 177, 41);
+}
+
+.after-project {
+    margin-top: 110px !important;
+}

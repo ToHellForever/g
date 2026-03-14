@@ -1,0 +1,139 @@
+/* Custom Accordion Styles */
+.custom-accordion {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.custom-accordion-item {
+    border: 2px solid rgba(204, 236, 65, 1) !important;
+    margin-top: 25px;
+    background-color: transparent;
+    border-radius: 72px !important;
+    overflow: hidden;
+}
+
+.custom-accordion-item .accordion-header {
+    border-radius: 72px !important;
+    margin-top: -30px;
+    height: 140px;
+}
+
+.custom-accordion-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: transparent;
+    border: none;
+    font-size: 2.5rem;
+    font-family: 'Gilroy-Light', sans-serif;
+    color: white;
+    width: 100%;
+    text-align: left;
+    border-radius: 72px !important;
+    position: relative;
+    min-height: 140px;
+}
+
+.arrow-container {
+    position: relative;
+    margin-left: auto;
+    min-height: 1.2rem;
+}
+
+.accordion-button:not(.collapsed) {
+    color: white;
+    background-color: transparent;
+}
+
+.custom-accordion-button::after {
+    display: none !important;
+}
+
+.custom-accordion-button:not(.collapsed) {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.custom-accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.arrow-clone {
+    right: -40px;
+}
+
+.custom-arrow {
+    width: 8.2rem;
+    height: 8.2rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: relative;
+    margin-right: -50px;
+}
+
+.subservices-list .custom-arrow {
+    position: relative;
+    margin: 10px 0 0 auto;
+    display: block;
+    float: right;
+}
+
+.custom-accordion-body {
+    padding: 0 30px 30px;
+    border-bottom-left-radius: 72px !important;
+    border-bottom-right-radius: 72px !important;
+}
+
+.custom-accordion-item .accordion-collapse {
+    border-bottom-left-radius: 72px !important;
+    border-bottom-right-radius: 72px !important;
+}
+
+.subservices-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-height: 7.2rem;
+}
+
+.subservice-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 0;
+    color: white;
+}
+
+.dots {
+    flex-grow: 1;
+    border-bottom: 4px dotted #ccc;
+    margin: 0 3px;
+    height: 1em;
+    line-height: 1em;
+}
+
+/* Анимации для подуслуг и цен */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(10px); }
+}
+
+.subservice-item {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.subservice-item.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.subservice-item.fade-out {
+    animation: fadeOut 0.5s ease forwards;
+}

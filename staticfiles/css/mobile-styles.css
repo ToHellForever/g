@@ -1,0 +1,408 @@
+/* Мобильные стили для landing.html */
+
+/* Основной контейнер для мобильной версии */
+.mobile-layout {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* Левая колонка (80% ширины) */
+.mobile-left-column {
+    flex: 0 0 70%;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: auto;
+}
+
+/* Колонка для логотипа (20% ширины) */
+.mobile-logo-column {
+    flex: 0 0 30%;
+    padding-left: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+}
+
+/* Контейнер для кнопок на всю ширину */
+.mobile-buttons-column {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 20px;
+    padding-right: 0px;
+}
+
+/* Три блока в строку */
+.mobile-three-billets {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
+}
+.three-billets {
+    gap: 0px;
+}
+.mobile-three-billets .billet {
+    flex: 1;
+    margin-top: 5px;
+    text-align: center;
+    white-space: nowrap;
+    padding: 1px 7px 1px 7px;
+    box-sizing: border-box;
+    border: 1px solid rgba(224, 224, 224, 1);
+    border-radius: 22.25px;
+    font-size: 1rem;
+    color: rgba(224, 224, 224, 1);
+    font-family: 'Gilroy-Light', sans-serif !important;
+    margin-left: 0px;
+}
+
+/* Кнопки на всю ширину */
+.mobile-buttons-column .custom-button {
+    width: 100% !important;
+    font-size: clamp(1.2rem, 5vw, 1.5rem) !important;
+    padding: 5px 0px 5px 0px !important;
+    margin-bottom: 10px;
+}
+
+/* Текст кнопок */
+.mobile-buttons-column .button-text {
+    width: 100%;
+    text-align: center;
+}
+@media screen and (max-width: 1050px) {
+    .project-col {
+        width: 100% !important;
+        margin-top: 50px !important;
+    }
+    .project-col:not(:first-child) {
+        margin-top: 120px !important;
+    }
+}
+
+/* Десктопная версия */
+@media screen and (min-width: 769px) {
+    .mobile-layout {
+        display: none !important;
+    }
+}
+
+/* Мобильная версия */
+@media screen and (max-width: 768px) {
+    .mobile-h1 {
+        width: 100%;
+        font-size: clamp(4.4rem, 18vw, 10rem) !important;
+        line-height: 0.9;
+        overflow-wrap: break-word;
+        word-break: break-all;
+        text-align: right;
+        padding-right: 15px !important;
+    }
+    
+    .g-p {
+        font-size: clamp(0.95rem, 4vw, 8rem) !important;
+        width: 100%;
+        overflow-wrap: break-word;
+        word-break: break-all;
+    }
+    
+    .desktop-layout {
+        display: none !important;
+    }
+    
+    .mobile-layout {
+        display: flex !important;
+        flex-wrap: wrap;
+        margin: 0;
+    }
+    
+    .mobile-left-column {
+        padding: 0;
+        height: 100%;
+    }
+    
+    .mobile-logo-column {
+        padding: 0;
+    }
+    
+    .mobile-buttons-column {
+        margin-top: 20px;
+    }
+    
+    .mobile-content {
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .button-text {
+        font-size: clamp(0.68rem, 2vw, 8rem) !important;
+        text-align: right;
+        margin-right: 15px;
+    }
+
+    
+    .custom-button {
+        width: 100% !important;
+        margin-bottom: 0px !important;
+    }
+    .custom-button:hover {
+        transform: none;
+    }
+    .three-billets {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .billet {
+        margin: 0 10px;
+    }
+    /* Стили для папок: 2 в строку, 1 под ними */
+    .folders-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 5px;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .folders-container .folder-card {
+        flex: 0 0 calc(50% - 5px);
+        max-width: calc(50% - 5px);
+        margin-bottom: -25px;
+        height: auto;
+        aspect-ratio: 1 / 0.9;
+    }
+
+    /* Стили для проектов: по одному в столбик */
+    .projects-container {
+        margin-top: 0px;
+    }
+    .projects-row {
+        flex-direction: column;
+    }
+
+    .projects-row .project-card {
+        width: 100% !important;
+        margin-bottom: 30px;
+    }
+
+    /* Убираем анимацию для фотографий проектов в мобильной версии */
+    .project-photo {
+        transition: none !important;
+        width: 150px;
+    }
+    .project-col { 
+        margin-top: 0px !important;
+    }
+    /* кроме первого элемента */
+    .project-col:not(:first-child) {
+        margin-top: 60px !important;
+    }
+    .project-name {
+        margin-top: 50px;
+    }
+    /* Размер для фото в мобильной версии */
+    .project-photo.photo-1 {
+        width: 170px !important;
+        margin-right: -40px;
+    }
+    .project-photo.photo-2 {
+        width: 150px !important;
+    }
+    .project-photo.photo-3 {
+        width: 170px !important;
+        margin-left: -20px !important;
+    }
+    .project-photo.photo-4 {
+        width: 110px !important;
+    }
+
+    /* Сохраняем исходное позиционирование фотографий */
+    .photo-1 {
+        transform: rotate(-5deg) translate(-110px, 20px) !important;
+    }
+    
+    .photo-2 {
+        transform: translate(0, -20px) !important;
+    }
+    
+    .photo-3 {
+        transform: rotate(0deg) translate(100px, 20px) !important;
+    }
+    
+    .photo-4 {
+        transform: translate(0, 100px) !important;
+    }
+
+    /* стили для ЧЕМ МЫ ЗАНИМАЕМСЯ */
+    .desc-h {
+        font-size: 1.3rem !important;
+        line-height: 1.2;
+    }
+    .desc-p {
+        font-size: 0.8rem !important;
+    }
+
+    /* Стили для футера */
+    .footer-container {
+        padding: 10px 0;
+        position: relative;
+        z-index: 101;
+    }
+    
+    .footer-container .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .footer-container .menu-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .footer-container .menu-items a {
+        white-space: nowrap;
+        font-size: clamp(0.9rem, 3vw, 1.2rem) !important;
+    }
+    
+    .footer-container .logo,
+    .footer-container .icon {
+        display: none;
+    }
+    
+    .menu-text.mobile-only {
+        display: none;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .menu-text.mobile-only {
+            display: inline;
+        }
+    }
+
+
+
+    /* СТОИМОСТЬ УСЛУГ 1 БЛОК */
+    /* Стили для трёх блоков в столбик и на всю ширину */
+    .row.three-block-rows {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .row.three-block-rows > [class*="col-"] {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .row.three-block-rows img {
+        width: 30px !important;
+        margin-top: 10px !important;
+    }
+
+    .three-block-p {
+        font-size: 1.2rem;
+    }
+    .three-block-price {
+        margin-left: 0px !important;
+        padding: 16px 20px 10px 20px;
+        width: 100% !important;
+    }
+
+    /* СТОИМОСТЬ УСЛУГ 2 БЛОК */
+    .service-name {
+        font-size: 1.2rem !important;
+        line-height: 1.1;
+    }
+    .custom-accordion-item .accordion-header {
+        margin-top: -40px;
+        height: 120px;
+    }
+    .custom-accordion-item {
+        border-radius: 30px !important;
+        margin-top: 10px;
+    }
+    .custom-arrow {
+        width: 100px;
+        height: auto;
+        margin-right: -10px !important;
+    }
+    .arrow-clone {
+        right: -15px;
+    }
+    .custom-accordion-button {
+        padding: 30px 0px 10px 20px;
+        border-radius: 0px !important;
+    }
+    .subservice-name {
+        font-size: 1rem !important;
+    }
+    .custom-accordion-body {
+        padding: 0 15px 15px;
+    }
+    .price {
+        font-size: 1rem;
+    }
+
+
+
+    /* ЭТАПЫ РАБОТЫ */
+    .stage-number,
+    .stage-number-2 {
+        font-size: 5rem;
+        margin-top: 25px;
+    }
+    .stage-h,
+    .stage-h-2 {
+        font-size: 1.12rem;
+        line-height: 1.1;
+        margin-bottom: 5px;
+    }
+    .stage-block,
+    .stage-block-2 {
+        padding-left: 10px;
+        height: auto;
+        padding-right: 10px;
+    }
+    .stage-text,
+    .stage-text-2 {
+        font-size: clamp(0.7rem, 2vw, 1.2rem);
+        line-height: 1.2;
+    }
+    .stage-number,
+    .stage-number-2 {
+        margin-right: 15px !important;
+    }
+    .stage-content {
+        padding-right: 0px;
+    }
+
+    /* часть с кнопкой заказа */
+    .button-form {
+        font-size: 1.4rem !important;
+        padding: 15px 30px !important;
+    }
+    .start-text {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+}

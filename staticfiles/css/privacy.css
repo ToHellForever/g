@@ -1,0 +1,93 @@
+/* Стили для страницы политики конфиденциальности */
+
+.privacy-container {
+    margin: 30px auto;
+    padding: 30px;
+    color: #333;
+    font-family: 'Gilroy-Light', sans-serif;
+    line-height: 1.8;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-title {
+    font-family: 'PlayfairDisplay', serif;
+    font-size: clamp(1.2rem, 5.9vw, 5.1rem);
+    color: #1F1F1F;
+    margin-bottom: 50px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 25px;
+}
+
+.privacy-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: rgba(209, 253, 10, 1);
+}
+
+.privacy-section {
+    margin-bottom: 40px;
+}
+
+.privacy-section-title {
+    font-family: 'Gilroy-ExtraBold', sans-serif;
+    font-size: 1.5rem;
+    color: #1F1F1F;
+    margin-bottom: 20px;
+    font-weight: 700;
+    padding-left: 15px;
+    border-left: 4px solid rgba(209, 253, 10, 1);
+}
+
+.privacy-text {
+    font-size: clamp(0.8rem, 4vw, 1.1rem);
+    color: #555;
+    margin-left: 15px;
+}
+
+.privacy-text ul {
+    padding-left: 20px;
+}
+
+.privacy-text li {
+    margin-bottom: 8px;
+}
+
+.privacy-link {
+    color: rgba(100, 149, 237, 1);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.privacy-link:hover {
+    color: rgba(80, 129, 217, 1);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .privacy-container {
+        margin: 10px;
+        padding: 15px;
+        width: calc(100% - 20px);
+        box-sizing: border-box;
+    }
+
+    .privacy-title {
+        font-size: clamp(1.2rem, 5.9vw, 3rem);
+    }
+    .privacy-text {
+        line-height: 1.4;
+    }
+    .privacy-section-title {
+        font-size: 1.3rem;
+    }
+}
