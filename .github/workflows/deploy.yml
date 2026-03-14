@@ -4,9 +4,9 @@ name: Deploy to VPS
 # Указываем когда запускать - при push в main ветку
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
-# Определяем задачи для выполнения
+# Определяем задачи для выполнения 
 jobs:
   deploy:
     # Указываем на какой ОС запускать
@@ -27,23 +27,33 @@ jobs:
 
           # Команды выполняемые на сервере
           script: |
+            # Переходим в директорию проекта
             cd /home/v/g
 
-            source venv/bin/activate
+            # Останавливаем службу приложения  (с sudo и передачей пароля)
+            echo "${{ secrets.PASSWORD }}" | sudo -S systemctl stop gunicorn_g
 
-            poetry install --no-root
-
-            echo "${{ secrets.PASSWORD }}" | sudo -S systemctl stop g
-
+            # Обновляем код из репозитория (с sudo и передачей пароля)
             echo "${{ secrets.PASSWORD }}" | git pull
 
-            source venv/bin/activate
+            # Если у вас PIP
+            # Активируем виртуальное окружение
+            # source venv/bin/activate
 
-            pip install -r requirements.txt
+            # Обновляем зависимости
+            # pip install -r requirements.txt
 
+            # Если у вас Poetry (Можно определить путь до poetry which poetry)
+            /home/v/.local/bin/poetry install --no-root 
 
-            /home/v/.local/bin/poetry install --no-root
+            # Миграции
+            /home/v/.local/bin/poetry run python manage.py migrate
 
+            # Создаем файл .env из секрета где записано все его содержимое
             echo "${{ secrets.ENV_FILE }}" > .env
 
-            echo "${{ secrets.PASSWORD }}" | sudo -S systemctl start g
+            # Собираем статику 
+            /home/v/.local/bin/poetry run python manage.py collectstatic --noinput
+
+            # Перезапускаем systemd сервис (с sudo и передачей пароля)
+            echo "${{ secrets.PASSWORD }}" | sudo -S systemctl start gunicorn_g
