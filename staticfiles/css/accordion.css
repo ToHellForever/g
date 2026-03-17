@@ -1,4 +1,4 @@
-/* Custom Accordion Styles */
+ё/* Custom Accordion Styles */
 .custom-accordion {
     width: 100%;
     margin-top: 30px;
@@ -108,12 +108,20 @@
 
 .dots {
     flex-grow: 1;
-    border-bottom: 4px dotted #ccc;
+    background-image: radial-gradient(circle, #ccc 1.8px, transparent 2.3px);
+    background-size: 8px 8px;
+    background-repeat: repeat-x;
+    background-position: center bottom;
     margin: 0 3px;
     height: 1em;
     line-height: 1em;
+    margin-bottom: -3px;
 }
-
+@media (max-width: 768px) {
+    .dots {
+        margin-bottom: 1px;
+    }
+}
 /* Анимации для подуслуг и цен */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
