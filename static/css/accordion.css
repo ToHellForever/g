@@ -108,18 +108,24 @@
 
 .dots {
     flex-grow: 1;
-    background-image: radial-gradient(circle, #ccc 1.8px, transparent 2.3px);
-    background-size: 8px 8px;
-    background-repeat: repeat-x;
-    background-position: center bottom;
+    display: flex;
+    align-items: center;
     margin: 0 3px;
-    height: 1em;
-    line-height: 1em;
-    margin-bottom: -3px;
+    height: 1.5em;
+    line-height: 1.5em;
+    margin-bottom: -5px;
+}
+
+.dots::before {
+    content: "";
+    flex-grow: 1;
+    border-bottom: 4px dotted #ccc;
+    margin: 0 auto;
+    margin-bottom: -10px;
 }
 @media (max-width: 768px) {
     .dots {
-        margin-bottom: 1px;
+        margin-bottom: 2px;
     }
 }
 /* Анимации для подуслуг и цен */
