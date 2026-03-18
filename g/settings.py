@@ -24,7 +24,7 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY")
 TELEGRAM_BOT_API_KEY = os.getenv("TELEGRAM_BOT_API_KEY")
 TELEGRAM_USER_ID = os.getenv("TELEGRAM_USER_ID")
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
