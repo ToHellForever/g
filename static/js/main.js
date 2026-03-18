@@ -421,21 +421,35 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth <= 767.98) {
             if (swiper) swiper.destroy(true, true);
 
-            swiper = new Swiper('.about-carousel', {
-                loop: true,
-                slidesPerView: 1.2,
-                spaceBetween: 20,
-                centeredSlides: true,
-                grabCursor: true,
-                effect: 'coverflow',
-                coverflowEffect: {
-                    rotate: 0,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 2.5,
-                    slideShadows: true,
-                },
-            });
+            // Проверяем ориентацию
+            const isLandscape = window.matchMedia("(orientation: landscape)").matches;
+            if (isLandscape) {
+                // Для горизонтальной мобильной версии: 1.5 слайда, без coverflow
+                swiper = new Swiper('.about-carousel', {
+                    loop: true,
+                    slidesPerView: 2.5,
+                    spaceBetween: 20,
+                    centeredSlides: false,
+                    grabCursor: true,
+                });
+            } else {
+                // Для вертикальной мобильной версии: 1.2 слайда с coverflow
+                swiper = new Swiper('.about-carousel', {
+                    loop: true,
+                    slidesPerView: 1.2,
+                    spaceBetween: 20,
+                    centeredSlides: true,
+                    grabCursor: true,
+                    effect: 'coverflow',
+                    coverflowEffect: {
+                        rotate: 0,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 2.5,
+                        slideShadows: true,
+                    },
+                });
+            }
         } else if (window.innerWidth <= 1400) {
             if (swiper) swiper.destroy(true, true);
 
