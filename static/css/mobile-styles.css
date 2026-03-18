@@ -99,12 +99,13 @@
 @media screen and (max-width: 768px) {
     .mobile-h1 {
         width: 100%;
-        font-size: clamp(4.4rem, 18vw, 10rem) !important;
+        font-size: clamp(4.1rem, 18vw, 10rem) !important;
         line-height: 0.9;
         overflow-wrap: break-word;
         word-break: break-all;
         text-align: right;
         padding-right: 15px !important;
+        white-space: nowrap;
     }
     
     .g-p {

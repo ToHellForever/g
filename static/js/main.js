@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let swiper;
 
     function initSwiper() {
-        if (window.innerWidth <= 767.98) {
+        if (window.innerWidth <= 555) {
             if (swiper) swiper.destroy(true, true);
 
             // Проверяем ориентацию
